@@ -1,0 +1,12 @@
+{
+    "require": {
+        "nategood/httpful": "^0.2.20",
+        "symfony/http-foundation": "^3.0",
+        "jms/serializer": "^1.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
