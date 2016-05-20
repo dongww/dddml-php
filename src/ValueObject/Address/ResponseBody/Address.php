@@ -17,7 +17,10 @@ class Address
      */
     private $addressLine1;
 
-    /** @var  int */
+    /**
+     * @Type("integer")
+     * @var  int
+     */
     private $cityId;
 
     /**

@@ -31,7 +31,7 @@ class Store
     private $businessLicence;
 
     /**
-     * @Type("DateTime")
+     * @Type("DateTime<'Y-m-d'>")
      * @var  \DateTime
      */
     private $createdTime;

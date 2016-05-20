@@ -1,5 +1,7 @@
 <?php
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use JMS\Serializer\Naming\CamelCaseNamingStrategy;
+use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use ValueObject\Store\AllQuery;
 use JMS\Serializer\SerializerBuilder;
 
@@ -9,7 +11,12 @@ AnnotationRegistry::registerAutoloadNamespace(
     'JMS\Serializer\Annotation',
     __DIR__ . "/../vendor/jms/serializer/src");
 
-$serializer = SerializerBuilder::create()->build();
+$cs = new CamelCaseNamingStrategy('', false);
+$snas = new SerializedNameAnnotationStrategy($cs);
+
+$serializer = SerializerBuilder::create()
+    ->setPropertyNamingStrategy($snas)
+    ->build();
 
 //$query = new AllQuery('Store', true, 10);
 //
@@ -41,5 +48,5 @@ $json = '
         "telephone": ""
     }]';
 
-$address = $serializer->deserialize($json, 'ValueObject\\Store\\ResponseBody\\StoreCollection', 'json');
+$address = $serializer->deserialize($json, 'ArrayCollection<ValueObject\Store\ResponseBody\Store>', 'json');
 var_dump($address);

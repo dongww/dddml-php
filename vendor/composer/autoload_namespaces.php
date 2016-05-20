@@ -13,5 +13,6 @@ return array(
     'JMS\\' => array($vendorDir . '/jms/parser-lib/src'),
     'Httpful' => array($vendorDir . '/nategood/httpful/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
+    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
 );

@@ -38,6 +38,6 @@ class StoreManager extends AbstractEntity
         )->getBody();
 
 //        return $json;
-        return $this->serializer->deserialize($json, 'ValueObject\\Store\\ResponseBody\\StoreCollection', 'json');
+        return $this->serializer->deserialize($json, 'ArrayCollection<ValueObject\Store\ResponseBody\Store>', 'json');
     }
 }

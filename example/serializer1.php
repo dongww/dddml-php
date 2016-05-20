@@ -1,8 +1,8 @@
 <?php
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
-use ValueObject\Store\AllQuery;
 use JMS\Serializer\SerializerBuilder;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -23,12 +23,12 @@ $serializer = SerializerBuilder::create()
     ->build();
 
 $json = '
-    {
+    [{
         "active": true,
         "businessLicence": "asdfasdf"
-    }';
+    }]';
 
-/** @AccessType("public_method") */
+
 class Item
 {
     /**
@@ -38,7 +38,6 @@ class Item
     private $active;
     /**
      * @Type("string")
-     * @Accessor(getter="getBusinessLicence",setter="setBusinessLicence")
      * @var string
      */
     private $businessLicence;
@@ -76,7 +75,7 @@ class Item
     }
 }
 
-class Ser extends \PhpCollection\AbstractCollection
+class Ser
 {
     /**
      * @Type("array<Item>")
@@ -100,5 +99,5 @@ class Ser extends \PhpCollection\AbstractCollection
     }
 }
 
-$address = $serializer->deserialize($json, 'Item', 'json');
+$address = $serializer->deserialize($json, 'ArrayCollection<Item>', 'json');
 var_dump($address);
