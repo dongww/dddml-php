@@ -8,7 +8,7 @@
 namespace ValueObject\Store;
 
 use ApiClient\AbstractEntity;
-use ValueObject\Store\AllQuery;
+use ValueObject\Store\getStores;
 
 /**
  * 门店类
@@ -29,7 +29,7 @@ class StoreManager extends AbstractEntity
     {
         $apiService = $this->apiService;
 
-        $query = new AllQuery('Store', true, $size);
+        $query = new getStores('Store', true, $size);
 
         $json = $apiService->request(
             static::REQUIRE_PATH,

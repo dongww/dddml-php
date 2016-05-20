@@ -10,7 +10,7 @@ namespace ValueObject\Store;
 use ApiClient\Request\QueryInterface;
 use Helper\BoolToStringHelper;
 
-class AllQuery implements QueryInterface
+class getStores implements QueryInterface
 {
     /**
      * @var string

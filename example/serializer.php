@@ -2,7 +2,6 @@
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
-use ValueObject\Store\AllQuery;
 use JMS\Serializer\SerializerBuilder;
 
 require_once __DIR__ . '/../vendor/autoload.php';
