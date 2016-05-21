@@ -1,6 +1,6 @@
 <?php
-use ApiClient\AbstractEntity;
-use ApiClient\ApiService;
+use PhpGo\ApiService\AbstractManager;
+use PhpGo\ApiService\ApiService;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 
@@ -26,7 +26,7 @@ class ManagerFactory
 
         $serializer = SerializerBuilder::create()->build();
 
-        /** @var AbstractEntity $manager */
+        /** @var AbstractManager $manager */
         $manager = new $className;
         $manager->setApiService(static::$apiService);
         $manager->setSerializer(static::$serializer);

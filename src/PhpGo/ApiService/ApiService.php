@@ -5,13 +5,12 @@
  * Time: 15:06
  */
 
-namespace ApiClient;
+namespace PhpGo\ApiService;
 
-use ApiClient\Request;
-use ApiClient\Request\BodyInterface;
-use ApiClient\Request\HeadersInterface;
-use ApiClient\Request\QueryInterface;
-use ApiClient\Response;
+use PhpGo\ApiService\Request;
+use PhpGo\ApiService\Request\BodyInterface;
+use PhpGo\ApiService\Request\QueryInterface;
+use PhpGo\ApiService\Response;
 use Httpful\Request as HttpfulRequest;
 
 /**
@@ -63,9 +62,9 @@ class ApiService
     /**
      * 接受 Api 请求并处理，给出反馈
      *
-     * @param \ApiClient\Request $request
+     * @param \PhpGo\ApiService\Request $request
      *
-     * @return \ApiClient\Response
+     * @return \PhpGo\ApiService\Response
      */
     public function handle(Request $request)
     {
@@ -114,7 +113,7 @@ class ApiService
      * @param string           $method 请求方法
      * @param string           $format 请求格式
      *
-     * @return \ApiClient\Response
+     * @return \PhpGo\ApiService\Response
      */
     public function request(
         $path,
@@ -132,7 +131,7 @@ class ApiService
     /**
      * 构建请求地址
      *
-     * @param \ApiClient\Request $request
+     * @param \PhpGo\ApiService\Request $request
      *
      * @return string
      */

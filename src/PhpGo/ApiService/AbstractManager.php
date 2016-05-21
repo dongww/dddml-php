@@ -5,11 +5,11 @@
  * Time: 20:01
  */
 
-namespace ApiClient;
+namespace PhpGo\ApiService;
 
 use JMS\Serializer\Serializer;
 
-class AbstractEntity
+class AbstractManager
 {
     /**
      * @var ApiService

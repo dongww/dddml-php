@@ -5,8 +5,7 @@
  * Time: 19:09
  */
 
-namespace Helper;
-
+namespace PhpGo\ApiService\Helper;
 
 class BoolToStringHelper implements TypeTransformHelperInterface
 {

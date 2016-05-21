@@ -5,8 +5,7 @@
  * Time: 19:11
  */
 
-namespace Helper;
-
+namespace PhpGo\ApiService\Helper;
 
 interface TypeTransformHelperInterface
 {

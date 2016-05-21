@@ -5,8 +5,7 @@
  * Time: 13:31
  */
 
-namespace ApiClient\Response;
-
+namespace PhpGo\ApiService\Response;
 
 interface BodyInterface
 {

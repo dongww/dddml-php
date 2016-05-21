@@ -5,8 +5,7 @@
  * Time: 20:19
  */
 
-namespace ApiClient\Request;
-
+namespace PhpGo\ApiService\Request;
 
 interface QueryInterface
 {

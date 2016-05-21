@@ -31,7 +31,7 @@ class CamelCaseNamingStrategy implements PropertyNamingStrategyInterface
     private $lowerCase;
     private $ucFirst;
 
-    public function __construct($separator = '_', $lowerCase = true, $ucFirst = false)
+    public function __construct($separator = '_', $lowerCase = true, $ucFirst = true)
     {
         $this->separator = $separator;
         $this->lowerCase = $lowerCase;

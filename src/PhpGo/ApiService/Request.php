@@ -5,12 +5,10 @@
  * Time: 9:15
  */
 
-namespace ApiClient;
+namespace PhpGo\ApiService;
 
-use ApiClient\Request\Body;
-use ApiClient\Request\BodyInterface;
-use ApiClient\HeadersInterface;
-use ApiClient\Request\QueryInterface;
+use PhpGo\ApiService\Request\BodyInterface;
+use PhpGo\ApiService\Request\QueryInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**

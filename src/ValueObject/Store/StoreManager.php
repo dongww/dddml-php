@@ -7,14 +7,13 @@
 
 namespace ValueObject\Store;
 
-use ApiClient\AbstractEntity;
-use ValueObject\Store\getStores;
+use PhpGo\ApiService\AbstractManager;
 
 /**
  * 门店类
  * @package Entity
  */
-class StoreManager extends AbstractEntity
+class StoreManager extends AbstractManager
 {
     const REQUIRE_PATH = "/organizations";
 
@@ -29,7 +28,7 @@ class StoreManager extends AbstractEntity
     {
         $apiService = $this->apiService;
 
-        $query = new getStores('Store', true, $size);
+        $query = new getStoresQuery('Store', true, $size);
 
         $json = $apiService->request(
             static::REQUIRE_PATH,

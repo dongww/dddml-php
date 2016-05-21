@@ -5,8 +5,7 @@
  * Time: 20:27
  */
 
-namespace ApiClient;
-
+namespace PhpGo\ApiService;
 
 interface HeadersInterface
 {

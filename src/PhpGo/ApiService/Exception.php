@@ -5,7 +5,7 @@
  * Time: 12:08
  */
 
-namespace ApiClient;
+namespace PhpGo\ApiService;
 
 class Exception extends \Exception
 {

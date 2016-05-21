@@ -5,9 +5,8 @@
  * Time: 11:30
  */
 
-namespace ApiClient;
+namespace PhpGo\ApiService;
 
-use ApiClient\Response\BodyInterface;
 use Httpful\Response as HttpfulResponse;
 
 /**
@@ -31,10 +30,6 @@ class Response
     public function __construct(HttpfulResponse $httpfulResponse)
     {
         $this->httpfulResponse = $httpfulResponse;;
-
-        if ($this->getCode() == self::CODE_403) {
-            header("Location: /login");exit;
-        }
 
         if (!in_array($this->getCode(), [self::CODE_200, self::CODE_201, self::CODE_204])) {
             throw new Exception(
