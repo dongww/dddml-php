@@ -8,7 +8,7 @@
 namespace ValueObject\Store;
 
 use JMS\Serializer\Annotation\Type;
-use ValueObject\Address\ResponseBody\Address;
+use ValueObject\Address\Address;
 
 class Store
 {

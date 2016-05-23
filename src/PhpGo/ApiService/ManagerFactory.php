@@ -1,7 +1,6 @@
 <?php
-use PhpGo\ApiService\AbstractManager;
-use PhpGo\ApiService\ApiService;
-use JMS\Serializer\Serializer;
+namespace PhpGo\ApiService;
+
 use JMS\Serializer\SerializerBuilder;
 
 /**
@@ -12,12 +11,10 @@ use JMS\Serializer\SerializerBuilder;
 class ManagerFactory
 {
     private static $apiService;
-    private static $serializer;
 
-    public function __construct(ApiService $apiService, Serializer $serializer)
+    public function __construct(ApiService $apiService)
     {
         static::$apiService = $apiService;
-        static::$serializer = $serializer;
     }
 
     public function create($name)
@@ -29,7 +26,6 @@ class ManagerFactory
         /** @var AbstractManager $manager */
         $manager = new $className;
         $manager->setApiService(static::$apiService);
-        $manager->setSerializer(static::$serializer);
 
         return $manager;
     }

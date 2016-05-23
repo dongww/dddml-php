@@ -22,6 +22,9 @@ class Response
     const CODE_400 = 400;
     const CODE_403 = 403;
 
+    const FORMAT_JSON = 'json';
+    const FORMAT_XML  = 'xml';
+
     /**
      * @var HttpfulResponse
      */
@@ -33,7 +36,7 @@ class Response
 
         if (!in_array($this->getCode(), [self::CODE_200, self::CODE_201, self::CODE_204])) {
             throw new Exception(
-                'content:' . $this->getBody() . ',' .
+                'content:' . $this->getRaw() . ',' .
                 'code:' . $this->getCode()
             );
         }
@@ -50,9 +53,18 @@ class Response
     /**
      * @return string
      */
-    public function getBody()
+    public function getRaw()
     {
         return $this->httpfulResponse->raw_body;
+    }
+
+    public function getObject($type, $format = Response::FORMAT_JSON)
+    {
+        return ApiService::$serializer->deserialize(
+            $this->getRaw(),
+            $type,
+            $format
+        );
     }
 
     public function getHeader($name)

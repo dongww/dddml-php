@@ -7,6 +7,7 @@
 
 namespace PhpGo\ApiService;
 
+use JMS\Serializer\Serializer;
 use PhpGo\ApiService\Request;
 use PhpGo\ApiService\Request\BodyInterface;
 use PhpGo\ApiService\Request\QueriesInterface;
@@ -20,6 +21,7 @@ use Httpful\Request as HttpfulRequest;
  */
 class ApiService
 {
+    public static $serializer;
     /**
      * Api 服务的基本路径
      *
@@ -29,9 +31,10 @@ class ApiService
 
     protected $token;
 
-    public function __construct($baseUri)
+    public function __construct($baseUri, Serializer $serializer)
     {
         $this->setBaseUri($baseUri);
+        self::$serializer = $serializer;
     }
 
     /**
