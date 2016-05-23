@@ -5,7 +5,7 @@
  * Time: 19:56
  */
 
-namespace ValueObject\Address\ResponseBody;
+namespace ValueObject\Address;
 
 use JMS\Serializer\Annotation\Type;
 

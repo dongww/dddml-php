@@ -8,6 +8,7 @@
 namespace ValueObject\Store;
 
 use PhpGo\ApiService\AbstractManager;
+use ValueObject\Store\Request\getStoresQuery;
 
 /**
  * 门店类
@@ -36,7 +37,10 @@ class StoreManager extends AbstractManager
             $query
         )->getBody();
 
-//        return $json;
-        return $this->serializer->deserialize($json, 'ArrayCollection<ValueObject\Store\ResponseBody\Store>', 'json');
+        return $this->serializer->deserialize(
+            $json,
+            'ArrayCollection<ValueObject\Store\Store>',
+            'json'
+        );
     }
 }

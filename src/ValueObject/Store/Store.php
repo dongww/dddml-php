@@ -5,7 +5,7 @@
  * Time: 19:41
  */
 
-namespace ValueObject\Store\ResponseBody;
+namespace ValueObject\Store;
 
 use JMS\Serializer\Annotation\Type;
 use ValueObject\Address\ResponseBody\Address;
@@ -19,7 +19,7 @@ class Store
     private $active;
 
     /**
-     * @Type("ValueObject\Address\ResponseBody\Address")
+     * @Type("ValueObject\Address\Address")
      * @var  Address
      */
     private $address;

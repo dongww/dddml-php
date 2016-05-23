@@ -5,7 +5,7 @@
  * Time: 20:16
  */
 
-namespace ValueObject\Store;
+namespace ValueObject\Store\Request;
 
 use PhpGo\ApiService\Request\QueryInterface;
 use PhpGo\ApiService\Helper\BoolToStringHelper;
