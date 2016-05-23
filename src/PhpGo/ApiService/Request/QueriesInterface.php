@@ -7,7 +7,7 @@
 
 namespace PhpGo\ApiService\Request;
 
-interface QueryInterface
+interface QueriesInterface
 {
     function toQueryArray();
 }

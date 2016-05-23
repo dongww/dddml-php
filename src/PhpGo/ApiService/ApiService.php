@@ -9,7 +9,7 @@ namespace PhpGo\ApiService;
 
 use PhpGo\ApiService\Request;
 use PhpGo\ApiService\Request\BodyInterface;
-use PhpGo\ApiService\Request\QueryInterface;
+use PhpGo\ApiService\Request\QueriesInterface;
 use PhpGo\ApiService\Response;
 use Httpful\Request as HttpfulRequest;
 
@@ -108,7 +108,7 @@ class ApiService
      *
      * @param string           $path   路径
      * @param BodyInterface    $body   请求内容
-     * @param QueryInterface   $query
+     * @param QueriesInterface $query
      * @param HeadersInterface $headers
      * @param string           $method 请求方法
      * @param string           $format 请求格式
@@ -118,7 +118,7 @@ class ApiService
     public function request(
         $path,
         BodyInterface $body = null,
-        QueryInterface $query = null,
+        QueriesInterface $query = null,
         HeadersInterface $headers = null,
         $method = Request::METHOD_GET,
         $format = Request::FORMAT_JSON
@@ -139,8 +139,8 @@ class ApiService
     {
         $url = $this->getBaseUri() . $request->getPath();
 
-        if (count($request->query->all())) {
-            $url .= '?' . http_build_query($request->query->all());
+        if (count($request->queries->all())) {
+            $url .= '?' . http_build_query($request->queries->all());
         }
 
         return $url;

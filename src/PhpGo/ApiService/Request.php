@@ -8,7 +8,7 @@
 namespace PhpGo\ApiService;
 
 use PhpGo\ApiService\Request\BodyInterface;
-use PhpGo\ApiService\Request\QueryInterface;
+use PhpGo\ApiService\Request\QueriesInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -55,14 +55,14 @@ class Request
     /**
      * @var ParameterBag
      */
-    public $query;
+    public $queries;
 
     /**
      * 构造函数
      *
      * @param string           $path 请求路径
      * @param BodyInterface    $body
-     * @param QueryInterface   $query
+     * @param QueriesInterface $queries
      * @param HeadersInterface $headers
      * @param string           $method
      * @param string           $format
@@ -70,22 +70,19 @@ class Request
     public function __construct(
         $path,
         BodyInterface $body = null,
-        QueryInterface $query = null,
+        QueriesInterface $queries = null,
         HeadersInterface $headers = null,
         $method = Request::METHOD_GET,
         $format = Request::FORMAT_JSON
     ) {
         $this->headers = new ParameterBag();
-        $this->query   = new ParameterBag();
+        $this->queries = new ParameterBag();
 
         $this->setPath($path);
         $this->setBody($body);
-        $this->query->add(
-            $query instanceof QueryInterface ? $query->toQueryArray() : []
-        );
-        $this->headers->add(
-            $headers instanceof HeadersInterface ? $headers->toHeadersArray() : []
-        );
+        $this->addQueries($queries);
+        $this->addHeaders($headers);
+
         $this->setMethod($method);
         $this->setFormat($format);
     }
@@ -152,5 +149,19 @@ class Request
     public function getBody()
     {
         return $this->body;
+    }
+
+    public function addQueries(QueriesInterface $query = null)
+    {
+        $this->queries->add(
+            $query instanceof QueriesInterface ? $query->toQueryArray() : []
+        );
+    }
+
+    public function addHeaders(HeadersInterface $headers = null)
+    {
+        $this->headers->add(
+            $headers instanceof HeadersInterface ? $headers->toHeadersArray() : []
+        );
     }
 }

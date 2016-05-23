@@ -7,10 +7,10 @@
 
 namespace ValueObject\Store\Request;
 
-use PhpGo\ApiService\Request\QueryInterface;
+use PhpGo\ApiService\Request\QueriesInterface;
 use PhpGo\ApiService\Helper\BoolToStringHelper;
 
-class getStoresQuery implements QueryInterface
+class getStoresQueries implements QueriesInterface
 {
     /**
      * @var string

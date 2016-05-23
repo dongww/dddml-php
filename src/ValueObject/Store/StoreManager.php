@@ -8,7 +8,7 @@
 namespace ValueObject\Store;
 
 use PhpGo\ApiService\AbstractManager;
-use ValueObject\Store\Request\getStoresQuery;
+use ValueObject\Store\Request\getStoresQueries;
 
 /**
  * 门店类
@@ -29,7 +29,7 @@ class StoreManager extends AbstractManager
     {
         $apiService = $this->apiService;
 
-        $query = new getStoresQuery('Store', true, $size);
+        $query = new getStoresQueries('Store', true, $size);
 
         $json = $apiService->request(
             static::REQUIRE_PATH,
