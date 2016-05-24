@@ -9,5 +9,8 @@ namespace PhpGo\ApiService\Request;
 
 interface BodyInterface
 {
-
+    /**
+     * @return array
+     */
+    public function getGroups();
 }

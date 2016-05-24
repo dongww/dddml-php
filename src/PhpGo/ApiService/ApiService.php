@@ -98,7 +98,8 @@ class ApiService
         $httpfulResponse = $httpfulRequest
             ->sendsJson()
             ->addHeaders($request->headers->all())
-            ->body(json_encode($request->getBody())
+            ->body(
+                $request->getBody()
             )->send();
 
         $response = new Response($httpfulResponse);

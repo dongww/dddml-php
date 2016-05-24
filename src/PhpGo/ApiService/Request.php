@@ -7,6 +7,7 @@
 
 namespace PhpGo\ApiService;
 
+use JMS\Serializer\SerializationContext;
 use PhpGo\ApiService\Request\BodyInterface;
 use PhpGo\ApiService\Request\QueriesInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -43,7 +44,7 @@ class Request
     protected $format;
 
     /**
-     * @var BodyInterface
+     * @var string
      */
     protected $body = null;
 
@@ -140,7 +141,21 @@ class Request
      */
     public function setBody(BodyInterface $body = null)
     {
-        $this->body = $body;
+        $data    = null;
+        $context = null;
+
+        if ($body) {
+            if ($groups = $body->getGroups()) {
+                $context = SerializationContext::create()->setGroups($groups);
+            }
+
+            $data = ApiService::$serializer->serialize(
+                $body,
+                'json',
+                $context
+            );
+        }
+        $this->body = $data;
     }
 
     /**

@@ -4,10 +4,10 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\SerializerBuilder;
+use PhpGo\ApiService\ManagerFactory;
 
 $basePath = 'http://10.201.70.82:8088';
 
-$apiService = new ApiService($basePath);
 AnnotationRegistry::registerAutoloadNamespace(
     'JMS\Serializer\Annotation',
     __DIR__ . "/../vendor/jms/serializer/src");
@@ -19,4 +19,6 @@ $serializer = SerializerBuilder::create()
     ->setPropertyNamingStrategy($snas)
     ->build();
 
-return new ManagerFactory($apiService, $serializer);
+$apiService = new ApiService($basePath, $serializer);
+
+return new ManagerFactory($apiService);
