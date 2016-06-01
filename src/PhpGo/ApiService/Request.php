@@ -19,11 +19,15 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 class Request
 {
-    const METHOD_GET    = 'get';
-    const METHOD_POST   = 'post';
-    const METHOD_PATCH  = 'patch';
-    const METHOD_PUT    = 'put';
-    const METHOD_DELETE = 'delete';
+    const METHOD_GET     = 'get';
+    const METHOD_POST    = 'post';
+    const METHOD_PATCH   = 'patch';
+    const METHOD_PUT     = 'put';
+    const METHOD_DELETE  = 'delete';
+    const METHOD_OPTIONS = 'options';
+    const METHOD_HEAD    = 'head';
+    const METHOD_TRACE   = 'trace';
+    const METHOD_CONNECT = 'connect';
 
     const FORMAT_JSON = 'json';
     const FORMAT_XML  = 'xml';
