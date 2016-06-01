@@ -5,7 +5,7 @@
  * Time: 21:04
  */
 
-namespace ValueObject\User\Response;
+namespace Entity\User\Response;
 
 use PhpGo\ApiService\HeadersInterface;
 

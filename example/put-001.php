@@ -1,6 +1,6 @@
 <?php
+use Entity\User\UserManager;
 use PhpGo\ApiService\ManagerFactory;
-use ValueObject\User\UserManager;
 use PhpGo\ApiService\Exception;
 
 require_once __DIR__ . '/../vendor/autoload.php';

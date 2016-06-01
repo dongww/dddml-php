@@ -47,5 +47,5 @@ $json = '
         "telephone": ""
     }]';
 
-$address = $serializer->deserialize($json, 'ArrayCollection<ValueObject\Store\ResponseBody\Store>', 'json');
+$address = $serializer->deserialize($json, 'ArrayCollection<Entity\Store\ResponseBody\Store>', 'json');
 var_dump($address);

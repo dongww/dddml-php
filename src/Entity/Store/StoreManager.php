@@ -5,11 +5,11 @@
  * Time: 19:53
  */
 
-namespace ValueObject\Store;
+namespace Entity\Store;
 
 use PhpGo\ApiService\AbstractManager;
 use PhpGo\ApiService\Response;
-use ValueObject\Store\Request\getStoresQueries;
+use Entity\Store\Request\getStoresQueries;
 
 /**
  * 门店类
@@ -37,7 +37,7 @@ class StoreManager extends AbstractManager
             null,
             $query
         )->getObject(
-            'array<ValueObject\Store\Store>'
+            'array<Entity\Store\Store>'
         );
     }
 }

@@ -5,10 +5,10 @@
  * Time: 19:41
  */
 
-namespace ValueObject\Store;
+namespace Entity\Store;
 
 use JMS\Serializer\Annotation\Type;
-use ValueObject\Address\Address;
+use Entity\Address\Address;
 
 class Store
 {
@@ -19,7 +19,7 @@ class Store
     private $active;
 
     /**
-     * @Type("ValueObject\Address\Address")
+     * @Type("Entity\Address\Address")
      * @var  Address
      */
     private $address;

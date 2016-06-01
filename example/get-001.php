@@ -1,6 +1,6 @@
 <?php
+use Entity\Store\StoreManager;
 use PhpGo\ApiService\ManagerFactory;
-use ValueObject\Store\StoreManager;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

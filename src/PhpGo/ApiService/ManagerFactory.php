@@ -19,7 +19,7 @@ class ManagerFactory
 
     public function create($name)
     {
-        $className = "\\ValueObject\\{$name}\\{$name}Manager";
+        $className = "\\Entity\\{$name}\\{$name}Manager";
 
         $serializer = SerializerBuilder::create()->build();
 

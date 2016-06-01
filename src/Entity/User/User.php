@@ -5,7 +5,7 @@
  * Time: 14:06
  */
 
-namespace ValueObject\User;
+namespace Entity\User;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Exclude;
@@ -16,7 +16,7 @@ use PhpGo\ApiService\Response\BodyInterface as ResponseBodyInterface;
 
 /**
  * Class User
- * @package ValueObject\User
+ * @package Entity\User
  * @ExclusionPolicy("none")
  */
 class User implements RequestBodyInterface, ResponseBodyInterface

@@ -5,7 +5,7 @@
  * Time: 13:54
  */
 
-namespace ValueObject\User;
+namespace Entity\User;
 
 use PhpGo\ApiService\AbstractManager;
 use PhpGo\ApiService\Exception;
@@ -31,7 +31,7 @@ class UserManager extends AbstractManager
             null,
             Request::METHOD_PUT
         )->getObject(
-            'ValueObject\User\User'
+            'Entity\User\User'
         );
 
         return $return;
