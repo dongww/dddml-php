@@ -1,0 +1,81 @@
+#%DDDML 0.1
+---
+
+
+aggregates:
+  #defaultModule: Test.DDD
+  
+
+# ---------------------------------  
+
+  Order:
+    id:
+      name: Id
+      type: string
+    properties:
+      OrderNo:
+        type: string
+      Status:
+        type: int
+      Description:
+        type: string
+      OrderLines:
+        itemType: OrderLine
+    entities:     
+      OrderLine:
+        id:
+          name: Id
+          type: string
+          arbitrary: True
+        outerId:
+          name: OrderId
+        properties:
+          ProductId:
+            type: string
+          PoProductNo:
+            type: string
+          ProductName:
+            type: string
+          AttributeSetInstanceId:
+            type: string
+          SkuName:
+            type: string
+          Quantity:
+            type: decimal
+          QuantityUomId:
+            type: string
+          ListPrice:
+            type: decimal
+          ListPriceUomId:
+            type: string
+          ActualPrice:
+            type: decimal
+          ActualPriceUomId:
+            type: string
+          OrganizationId:
+            type: string
+          OrganizationName:
+            type: string
+          LogisticalNo:
+            type: string
+          Status:
+            type: int
+          PoProductNo:
+            type: string
+          OrderAttachements:
+            itemType: OrderAttachement
+        entities:
+          OrderAttachement:
+            id:
+              name: Id
+              type: string
+              arbitrary: True
+            outerId:
+              name: OrderLineId
+            properties: 
+              AttachementTypeName:
+                type: string
+              AttachementUrl:
+                type: string
+              AttachementTypeId:
+                type: int
