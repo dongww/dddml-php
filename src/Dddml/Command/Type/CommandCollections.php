@@ -8,7 +8,7 @@
 namespace Dddml\Command\Type;
 
 
-use Dddml\Command\AbstractCommand;
+use Dddml\Command\CommandTrait;
 use Dddml\Command\CommandInterface;
 
 class CommandCollections implements CommandInterface

@@ -7,12 +7,17 @@
 
 namespace Dddml\Command\Type;
 
-use Dddml\Command\AbstractCommand;
+use Dddml\Command\CommandInterface;
 
-class CreateCommand extends AbstractCommand
+class CreateCommand implements CommandInterface
 {
     public function getType()
     {
         return self::COMMAND_CREATE;
+    }
+
+    public function toJson()
+    {
+        // TODO: Implement toJson() method.
     }
 }
