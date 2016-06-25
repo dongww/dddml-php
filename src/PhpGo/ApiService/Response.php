@@ -4,7 +4,6 @@
  * Date: 2016/2/17
  * Time: 11:30
  */
-
 namespace PhpGo\ApiService;
 
 use Httpful\Response as HttpfulResponse;
@@ -32,12 +31,13 @@ class Response
 
     public function __construct(HttpfulResponse $httpfulResponse)
     {
-        $this->httpfulResponse = $httpfulResponse;;
+        $this->httpfulResponse = $httpfulResponse;
+        ;
 
         if (!in_array($this->getCode(), [self::CODE_200, self::CODE_201, self::CODE_204])) {
             throw new Exception(
-                'content:' . $this->getRaw() . ',' .
-                'code:' . $this->getCode()
+                $this->getRaw(),
+                $this->getCode()
             );
         }
     }

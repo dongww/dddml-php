@@ -4,15 +4,14 @@
  * Date: 2016-2-5
  * Time: 15:06
  */
-
 namespace PhpGo\ApiService;
 
+use Httpful\Request as HttpfulRequest;
 use JMS\Serializer\Serializer;
 use PhpGo\ApiService\Request;
 use PhpGo\ApiService\Request\BodyInterface;
 use PhpGo\ApiService\Request\QueriesInterface;
 use PhpGo\ApiService\Response;
-use Httpful\Request as HttpfulRequest;
 
 /**
  * Api 服务的抽象类

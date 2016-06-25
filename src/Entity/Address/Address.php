@@ -4,7 +4,6 @@
  * Date: 2016/5/19
  * Time: 19:56
  */
-
 namespace Entity\Address;
 
 use JMS\Serializer\Annotation\Type;

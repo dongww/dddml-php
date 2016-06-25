@@ -4,7 +4,6 @@
  * Date: 2016/6/6
  * Time: 18:53
  */
-
 namespace Entity\Order;
 
 use Entity\Order\OrderLine\OrderLine;

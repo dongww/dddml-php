@@ -4,7 +4,6 @@
  * Date: 2016/6/6
  * Time: 20:31
  */
-
 namespace Command\Order;
 
 use JMS\Serializer\Annotation\Type;
@@ -102,6 +101,4 @@ trait IsPropertyRemovedTrait
     {
         $this->IsPropertyActiveRemoved = $IsPropertyActiveRemoved;
     }
-
-
 }

@@ -4,11 +4,10 @@
  * Date: 2016/5/18
  * Time: 20:16
  */
-
 namespace Entity\Store\Request;
 
-use PhpGo\ApiService\Request\QueriesInterface;
 use PhpGo\ApiService\Helper\BoolToStringHelper;
+use PhpGo\ApiService\Request\QueriesInterface;
 
 class getStoresQueries implements QueriesInterface
 {
@@ -83,7 +82,7 @@ class getStoresQueries implements QueriesInterface
     }
 
 
-    function toQueryArray()
+    public function toQueryArray()
     {
         return [
             'type'   => (string)$this->getType(),

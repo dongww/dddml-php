@@ -4,7 +4,6 @@
  * Date: 2016/6/6
  * Time: 19:15
  */
-
 namespace Entity\Order\OrderLine\OrderAttachement;
 
 use JMS\Serializer\Annotation\Type;

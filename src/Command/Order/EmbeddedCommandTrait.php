@@ -4,7 +4,6 @@
  * Date: 2016/6/6
  * Time: 20:42
  */
-
 namespace Command\Order;
 
 use Command\Order\OrderLine\OrderLine;
@@ -39,5 +38,4 @@ trait EmbeddedCommandTrait
     {
         $this->OrderLines[] = $orderLine;
     }
-
 }

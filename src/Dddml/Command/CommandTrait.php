@@ -4,9 +4,9 @@
  * Date: 2016/5/30
  * Time: 21:02
  */
-
 namespace Dddml\Command;
 
+use JMS\Serializer\Annotation\Type;
 
 trait CommandTrait
 {
@@ -33,6 +33,11 @@ trait CommandTrait
      * @Type("boolean")
      */
     protected $Active;
+
+    public function __construct($commandType = null)
+    {
+        $this->setCommandType($commandType);
+    }
 
     /**
      * @return mixed

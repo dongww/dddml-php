@@ -4,13 +4,12 @@
  * Date: 2016/5/21
  * Time: 14:06
  */
-
 namespace Entity\User;
 
-use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Exclude;
-use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\Type;
 use PhpGo\ApiService\Request\BodyInterface as RequestBodyInterface;
 use PhpGo\ApiService\Response\BodyInterface as ResponseBodyInterface;
 

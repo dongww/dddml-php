@@ -4,11 +4,10 @@
  * Date: 2016/5/19
  * Time: 19:41
  */
-
 namespace Entity\Store;
 
-use JMS\Serializer\Annotation\Type;
 use Entity\Address\Address;
+use JMS\Serializer\Annotation\Type;
 
 class Store
 {

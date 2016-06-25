@@ -4,7 +4,6 @@
  * Date: 2016/6/6
  * Time: 20:31
  */
-
 namespace Command\Order\OrderLine;
 
 use JMS\Serializer\Annotation\Type;

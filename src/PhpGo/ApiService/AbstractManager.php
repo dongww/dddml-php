@@ -4,7 +4,6 @@
  * Date: 2016/5/18
  * Time: 20:01
  */
-
 namespace PhpGo\ApiService;
 
 use JMS\Serializer\Serializer;

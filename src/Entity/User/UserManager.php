@@ -4,7 +4,6 @@
  * Date: 2016/5/21
  * Time: 13:54
  */
-
 namespace Entity\User;
 
 use PhpGo\ApiService\AbstractManager;
@@ -13,7 +12,7 @@ use PhpGo\ApiService\Request;
 
 class UserManager extends AbstractManager
 {
-    const REQUIRE_PATH = "/members/login";
+    const REQUIRE_PATH = '/members/login';
 
     public function login($username, $password)
     {

@@ -4,7 +4,6 @@
  * Date: 2016/5/23
  * Time: 21:04
  */
-
 namespace Entity\User\Response;
 
 use PhpGo\ApiService\HeadersInterface;
