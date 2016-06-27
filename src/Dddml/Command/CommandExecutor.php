@@ -6,76 +6,19 @@
  */
 namespace Dddml\Command;
 
-use GuzzleHttp\Client;
-use JMS\Serializer\Serializer;
+use Dddml\AbstractExecutor;
 
-class CommandExecutor
+class CommandExecutor extends AbstractExecutor
 {
-    protected $baseUri;
-
-    /** @var  Serializer */
-    protected $serializer;
-
-    /** @var  Client */
-    protected $client;
-
-    /** @var  array */
-    protected $option;
-
-    public static $defaultClientOption = [
-        'headers' => [
-            'Content-Type' => 'application/json',
-        ],
-    ];
-
     public static $noBodyMethods = [
-        CommandInterface::COMMAND_QUERY,
         CommandInterface::COMMAND_DELETE,
     ];
 
     public static $commandMethodMap = [
-        CommandInterface::COMMAND_CREATE      => CommandInterface::METHOD_PUT,
-        CommandInterface::COMMAND_MERGE_PATCH => CommandInterface::METHOD_PATCH,
-        CommandInterface::COMMAND_DELETE      => CommandInterface::METHOD_DELETE,
+        CommandInterface::COMMAND_CREATE      => self::METHOD_PUT,
+        CommandInterface::COMMAND_MERGE_PATCH => self::METHOD_PATCH,
+        CommandInterface::COMMAND_DELETE      => self::METHOD_DELETE,
     ];
-
-    /**
-     * @return array
-     */
-    public function getOption()
-    {
-        return $this->option;
-    }
-
-    /**
-     * @param array $option
-     */
-    public function setOption($option)
-    {
-        $this->option = $option;
-    }
-
-    public function setBaseUri($uri)
-    {
-        $this->baseUri = $uri;
-    }
-
-    public function setSerializer(Serializer $serializer)
-    {
-        $this->serializer = $serializer;
-    }
-
-    public function __construct($baseUri, Serializer $serializer, array $option = [])
-    {
-        $this->setBaseUri($baseUri);
-        $this->setSerializer($serializer);
-
-        $this->client = new Client([
-            'base_uri' => $this->baseUri,
-        ]);
-
-        $this->setOption($option);
-    }
 
     /**
      * @param CommandInterface $command
@@ -115,7 +58,6 @@ class CommandExecutor
         ) {
             $json                 = $this->serializer->serialize($command, 'json');
             $clientOption['body'] = $json;
-            echo $json;
         }
 
         if (isset($option['headers'])) {
