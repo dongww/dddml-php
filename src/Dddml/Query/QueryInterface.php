@@ -17,6 +17,11 @@ interface QueryInterface
     const QUERY_LIST             = 'List';
     const QUERY_SINGLE           = 'Single';
 
+    /**
+     * 获取查询类型
+     * 
+     * @return string
+     */
     public function getQueryType();
 
     /**
@@ -31,7 +36,7 @@ interface QueryInterface
     public function getUrl($type, $baseUri, array $parameters = []);
 
     /**
-     * 获取可以用来过滤的字段数组
+     * 获取可以用来筛选的字段数组
      *
      * @return array
      */

@@ -78,8 +78,7 @@ class CommandExecutor extends AbstractExecutor
             $command->getCommandType(),
             static::$noBodyMethods)
         ) {
-            $json                 = $this->serializer->serialize($command, 'json');
-            $clientOption['body'] = $json;
+            $clientOption['body'] = $this->serializer->serialize($command, 'json');
         }
 
         if (isset($option['headers'])) {
