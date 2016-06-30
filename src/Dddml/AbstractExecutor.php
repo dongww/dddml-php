@@ -12,6 +12,11 @@ use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 
+/**
+ * 查询执行类和命令执行类的基类
+ *
+ * @package Dddml
+ */
 abstract class AbstractExecutor
 {
     const METHOD_GET    = 'GET';
@@ -37,6 +42,13 @@ abstract class AbstractExecutor
         ],
     ];
 
+    /**
+     * AbstractExecutor constructor.
+     *
+     * @param string          $baseUri    基础网址，例如 http://example.com/api/v1/
+     * @param Serializer|null $serializer 序列化工具对象
+     * @param array           $option     选项
+     */
     public function __construct($baseUri, Serializer $serializer = null, array $option = [])
     {
         $this->setBaseUri($baseUri);
@@ -60,6 +72,8 @@ abstract class AbstractExecutor
     }
 
     /**
+     * 获取选项
+     *
      * @return array
      */
     public function getOption()
@@ -68,6 +82,8 @@ abstract class AbstractExecutor
     }
 
     /**
+     * 设置选项
+     *
      * @param array $option
      */
     public function setOption($option)
@@ -75,11 +91,21 @@ abstract class AbstractExecutor
         $this->option = $option;
     }
 
+    /**
+     * 设置基础网址
+     *
+     * @param string $uri
+     */
     public function setBaseUri($uri)
     {
         $this->baseUri = $uri;
     }
 
+    /**
+     * 设置序列化工具对象
+     *
+     * @param Serializer $serializer
+     */
     public function setSerializer(Serializer $serializer)
     {
         $this->serializer = $serializer;

@@ -8,6 +8,11 @@ namespace Dddml\Command;
 
 use JMS\Serializer\Annotation\Type;
 
+/**
+ * 命令 Trait，包含命令所必须的一些字段，可以被序列化和反序列化
+ *
+ * @package Dddml\Command
+ */
 trait CommandTrait
 {
     /**
@@ -34,13 +39,18 @@ trait CommandTrait
      */
     protected $Active;
 
+    /**
+     * 构造函数
+     *
+     * @param string $commandType 命令类型
+     */
     public function __construct($commandType = null)
     {
         $this->setCommandType($commandType);
     }
 
     /**
-     * @return mixed
+     * @return string 获取命令类型
      */
     public function getCommandType()
     {
@@ -48,7 +58,9 @@ trait CommandTrait
     }
 
     /**
-     * @param mixed $CommandType
+     * 设置命令类型
+     *
+     * @param string $CommandType 命令类型
      */
     public function setCommandType($CommandType)
     {
@@ -56,7 +68,7 @@ trait CommandTrait
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getVersion()
     {
@@ -64,7 +76,7 @@ trait CommandTrait
     }
 
     /**
-     * @param mixed $Version
+     * @param int $Version
      */
     public function setVersion($Version)
     {
@@ -72,7 +84,7 @@ trait CommandTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCommandId()
     {
@@ -80,7 +92,7 @@ trait CommandTrait
     }
 
     /**
-     * @param mixed $CommandId
+     * @param string $CommandId
      */
     public function setCommandId($CommandId)
     {
@@ -88,7 +100,7 @@ trait CommandTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getRequesterId()
     {
@@ -96,7 +108,7 @@ trait CommandTrait
     }
 
     /**
-     * @param mixed $RequesterId
+     * @param string $RequesterId
      */
     public function setRequesterId($RequesterId)
     {
@@ -104,7 +116,7 @@ trait CommandTrait
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function getActive()
     {
@@ -112,7 +124,7 @@ trait CommandTrait
     }
 
     /**
-     * @param mixed $Active
+     * @param bool $Active
      */
     public function setActive($Active)
     {

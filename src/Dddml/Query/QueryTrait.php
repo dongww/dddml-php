@@ -4,13 +4,18 @@
  * Date: 2016/6/29
  * Time: 20:28
  */
-
 namespace Dddml\Query;
 
-
+/**
+ * 查询对象所需的 Trait
+ *
+ * @package Dddml\Query
+ */
 trait QueryTrait
 {
-    /** @var  string */
+    /**
+     * @var string 查询类型
+     */
     private $queryType;
 
     public function __construct($type)
@@ -19,6 +24,8 @@ trait QueryTrait
     }
 
     /**
+     * 获取查询类型
+     * 
      * @return string
      */
     public function getQueryType()
@@ -27,6 +34,8 @@ trait QueryTrait
     }
 
     /**
+     * 设置查询类型
+     * 
      * @param string $queryType
      */
     public function setQueryType($queryType)
