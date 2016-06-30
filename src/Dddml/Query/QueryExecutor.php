@@ -4,19 +4,23 @@
  * Date: 2016/6/27
  * Time: 19:48
  */
-
 namespace Dddml\Query;
-
 
 use Dddml\AbstractExecutor;
 
 class QueryExecutor extends AbstractExecutor
 {
-    public function execute($executePath, array $option = [])
+    public function execute(QueryInterface $query, array $option = [])
     {
+        $url = $query->getUrl(
+            $query->getQueryType(),
+            $this->baseUri,
+            $option['parameters'] ?: []
+        );
+
         $response = $this->client->request(
             self::METHOD_GET,
-            $executePath,
+            $url,
             $this->getClientOption($option)
         );
 

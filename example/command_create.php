@@ -4,13 +4,8 @@ use Command\Order\OrderLine\OrderAttachement\OrderAttachement;
 use Command\Order\OrderLine\OrderLine;
 use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\Naming\CamelCaseNamingStrategy;
-use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
-use JMS\Serializer\SerializerBuilder;
-use PhpGo\ApiService\ApiService;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/bootstrap.php';
 
 $orderId             = 'orderId001';
 $orderLineId         = 'orderLineId001';
@@ -65,23 +60,12 @@ $order->setIsPropertyActiveRemoved(true);
 
 $order->addOrderLine($ol);
 
-$baseUri = 'http://10.201.10.16:9999/api/';
+$executor = new CommandExecutor($baseUri);
 
-AnnotationRegistry::registerAutoloadNamespace(
-    'JMS\Serializer\Annotation',
-    __DIR__ . "/../vendor/jms/serializer/src");
-
-$cs   = new CamelCaseNamingStrategy('', false);
-$snas = new SerializedNameAnnotationStrategy($cs);
-
-$serializer = SerializerBuilder::create()
-    ->setPropertyNamingStrategy($snas)
-    ->build();
-
-//$apiService = new ApiService($basePath, $serializer);
-
-$executor = new CommandExecutor($baseUri, $serializer);
-
-$response = $executor->execute($order, "Orders/{$orderId}");
+$response = $executor->execute($order, [
+    'parameters' => [
+        'id' => $orderId,
+    ],
+]);
 
 var_dump($response->getBody()->getContents());

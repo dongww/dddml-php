@@ -16,4 +16,18 @@ class OrderLine extends OrderLineEntity implements CommandInterface
     use CommandTrait;
     use IsPropertyRemovedTrait;
     use EmbeddedCommandTrait;
+
+    /**
+     * 获取查询对应的 URL
+     *
+     * @param string $type 执行的类型
+     * @param        $baseUri
+     * @param array  $parameters
+     *
+     * @return string
+     */
+    public function getUrl($type, $baseUri, array $parameters = [])
+    {
+        return null;
+    }
 }

@@ -15,4 +15,18 @@ class OrderAttachement extends OrderAttachementEntity implements CommandInterfac
 {
     use CommandTrait;
     use IsPropertyRemovedTrait;
+
+    /**
+     * 获取查询对应的 URL
+     *
+     * @param string $type 执行的类型
+     * @param        $baseUri
+     * @param array  $parameters
+     *
+     * @return string
+     */
+    public function getUrl($type, $baseUri, array $parameters = [])
+    {
+        return null;
+    }
 }

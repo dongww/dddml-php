@@ -1,24 +1,10 @@
 <?php
-use PhpGo\ApiService\ApiService;
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\Naming\CamelCaseNamingStrategy;
-use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
-use JMS\Serializer\SerializerBuilder;
-use PhpGo\ApiService\ManagerFactory;
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$basePath = 'http://10.201.70.82:8088';
+use Doctrine\Common\Annotations\AnnotationRegistry;
+
+$baseUri = 'http://10.201.10.16:9999/api/';
 
 AnnotationRegistry::registerAutoloadNamespace(
     'JMS\Serializer\Annotation',
     __DIR__ . "/../vendor/jms/serializer/src");
-
-$cs = new CamelCaseNamingStrategy('', false, false);
-$snas = new SerializedNameAnnotationStrategy($cs);
-
-$serializer = SerializerBuilder::create()
-    ->setPropertyNamingStrategy($snas)
-    ->build();
-
-$apiService = new ApiService($basePath, $serializer);
-
-return new ManagerFactory($apiService);

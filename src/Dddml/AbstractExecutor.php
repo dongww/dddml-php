@@ -4,14 +4,15 @@
  * Date: 2016/6/27
  * Time: 19:50
  */
-
 namespace Dddml;
 
-
 use GuzzleHttp\Client;
+use JMS\Serializer\Naming\CamelCaseNamingStrategy;
+use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
 
-class AbstractExecutor
+abstract class AbstractExecutor
 {
     const METHOD_GET    = 'GET';
     const METHOD_POST   = 'POST';
@@ -36,9 +37,19 @@ class AbstractExecutor
         ],
     ];
 
-    public function __construct($baseUri, Serializer $serializer, array $option = [])
+    public function __construct($baseUri, Serializer $serializer = null, array $option = [])
     {
         $this->setBaseUri($baseUri);
+
+        if (!$serializer) {
+            $cs   = new CamelCaseNamingStrategy('', false);
+            $snas = new SerializedNameAnnotationStrategy($cs);
+
+            $serializer = SerializerBuilder::create()
+                ->setPropertyNamingStrategy($snas)
+                ->build();
+        }
+
         $this->setSerializer($serializer);
 
         $this->client = new Client([

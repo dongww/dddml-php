@@ -22,16 +22,23 @@ class CommandExecutor extends AbstractExecutor
 
     /**
      * @param CommandInterface $command
-     * @param string           $executePath 执行路径，例如：user/login
      * @param array            $option
      *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    public function execute(CommandInterface $command, $executePath, array $option = [])
+    public function execute(CommandInterface $command, array $option = [])
     {
+        $commandType = $command->getCommandType();
+
+        $url = $command->getUrl(
+            $commandType,
+            $this->baseUri,
+            $option['parameters'] ?: []
+        );
+
         $response = $this->client->request(
-            static::$commandMethodMap[$command->getCommandType()],
-            $executePath,
+            static::$commandMethodMap[$commandType],
+            $url,
             $this->getClientOption($command, $option)
         );
 
