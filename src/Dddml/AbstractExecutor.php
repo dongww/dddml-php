@@ -36,6 +36,9 @@ abstract class AbstractExecutor
     /** @var  array */
     protected $option;
 
+    /** @var  string */
+    protected $token = null;
+
     public static $defaultClientOption = [
         'headers' => [
             'Content-Type' => 'application/json',
@@ -69,6 +72,34 @@ abstract class AbstractExecutor
         ]);
 
         $this->setOption($option);
+    }
+
+    /**
+     * 获取 Token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * 设置 Token
+     *
+     * @param string $token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+    }
+
+    /**
+     * 移除 Token
+     */
+    public function removeToken()
+    {
+        $this->token = null;
     }
 
     /**
@@ -109,5 +140,36 @@ abstract class AbstractExecutor
     public function setSerializer(Serializer $serializer)
     {
         $this->serializer = $serializer;
+    }
+
+    /**
+     * 将参数转换成 HttpClient 所需的参数，并返回
+     *
+     * @param array $extOption 附加的选项
+     *
+     * @return array
+     */
+    protected function __getClientOption(array $extOption = [])
+    {
+        $option = array_merge($this->option, $extOption);
+
+        $clientOption = static::$defaultClientOption;
+
+        if ($this->getToken()) {
+            $clientOption['headers']['Authorization'] = 'Bearer ' . $this->getToken();
+        }
+
+        if (isset($option['headers'])) {
+            $clientOption['headers'] = array_merge(
+                $clientOption['headers'],
+                $option['headers']
+            );
+        }
+
+        if (isset($option['query']) && is_array($option['query'])) {
+            $clientOption['query'] = $option['query'];
+        }
+
+        return $clientOption;
     }
 }

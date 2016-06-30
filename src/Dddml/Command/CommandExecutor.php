@@ -70,26 +70,13 @@ class CommandExecutor extends AbstractExecutor
         CommandInterface $command,
         array $extOption = []
     ) {
-        $option = array_merge($this->option, $extOption);
-
-        $clientOption = static::$defaultClientOption;
+        $clientOption = parent::__getClientOption($extOption);
 
         if (!in_array(
             $command->getCommandType(),
             static::$noBodyMethods)
         ) {
             $clientOption['body'] = $this->serializer->serialize($command, 'json');
-        }
-
-        if (isset($option['headers'])) {
-            $clientOption['headers'] = array_merge(
-                $clientOption['headers'],
-                $option['headers']
-            );
-        }
-
-        if (isset($option['query']) && is_array($option['query'])) {
-            $clientOption['query'] = $option['query'];
         }
 
         return $clientOption;

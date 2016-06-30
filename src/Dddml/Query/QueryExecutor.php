@@ -46,24 +46,8 @@ class QueryExecutor extends AbstractExecutor
      *
      * @return array
      */
-    protected function getClientOption(
-        array $extOption = []
-    ) {
-        $option = array_merge($this->option, $extOption);
-
-        $clientOption = static::$defaultClientOption;
-
-        if (isset($option['headers'])) {
-            $clientOption['headers'] = array_merge(
-                $clientOption['headers'],
-                $option['headers']
-            );
-        }
-
-        if (isset($option['query']) && is_array($option['query'])) {
-            $clientOption['query'] = $option['query'];
-        }
-
-        return $clientOption;
+    protected function getClientOption(array $extOption = [])
+    {
+        return parent::__getClientOption($extOption);
     }
 }
