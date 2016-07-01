@@ -36,8 +36,8 @@ abstract class AbstractExecutor
     /** @var  array */
     protected $option;
 
-    /** @var  string */
-    protected $token = null;
+    /** @var  Auth */
+    protected $auth = null;
 
     public static $defaultClientOption = [
         'headers' => [
@@ -75,31 +75,31 @@ abstract class AbstractExecutor
     }
 
     /**
-     * 获取 Token
+     * 获取授权对象
      *
-     * @return string
+     * @return Auth
      */
-    public function getToken()
+    public function getAuth()
     {
-        return $this->token;
+        return $this->auth;
     }
 
     /**
-     * 设置 Token
+     * 设置授权对象
      *
-     * @param string $token
+     * @param Auth $auth
      */
-    public function setToken($token)
+    public function setAuth(Auth $auth)
     {
-        $this->token = $token;
+        $this->auth = $auth;
     }
 
     /**
-     * 移除 Token
+     * 移除授权
      */
-    public function removeToken()
+    public function removeAuth()
     {
-        $this->token = null;
+        $this->auth = null;
     }
 
     /**
@@ -155,8 +155,8 @@ abstract class AbstractExecutor
 
         $clientOption = static::$defaultClientOption;
 
-        if ($this->getToken()) {
-            $clientOption['headers']['Authorization'] = 'Bearer ' . $this->getToken();
+        if ($this->getAuth()) {
+            $clientOption['headers']['Authorization'] = 'Bearer ' . $this->getAuth()->getToken();
         }
 
         if (isset($option['headers'])) {
