@@ -6,7 +6,7 @@ use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/bootstrap.php';
 
 $orderId             = 'orderId001';
 $orderLineId         = 'orderLineId001';
@@ -64,11 +64,6 @@ $order->setVersion(5);
 
 $order->addOrderLine($ol);
 
-$baseUri = 'http://10.201.10.16:9999/api/';
-
-AnnotationRegistry::registerAutoloadNamespace(
-    'JMS\Serializer\Annotation',
-    __DIR__ . "/../vendor/jms/serializer/src");
 $executor = new CommandExecutor($baseUri);
 
 $response = $executor->execute($order, [
