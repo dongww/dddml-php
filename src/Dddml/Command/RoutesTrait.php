@@ -8,7 +8,6 @@ namespace Dddml\Command;
 
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
@@ -48,21 +47,5 @@ trait RoutesTrait
      *
      * @return RouteCollection
      */
-    protected function getRoutes()
-    {
-        if (!$this->routes) {
-            $this->routes = new RouteCollection();
-
-            $route = new Route('/Orders/{id}');
-            $this->routes->add(CommandInterface::COMMAND_CREATE, $route);
-
-            $route = new Route('/Orders/{id}');
-            $this->routes->add(CommandInterface::COMMAND_MERGE_PATCH, $route);
-
-            $route = new Route('/Orders/{id}');
-            $this->routes->add(CommandInterface::COMMAND_DELETE, $route);
-        }
-
-        return $this->routes;
-    }
+    abstract protected function getRoutes();
 }

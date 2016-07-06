@@ -19,10 +19,6 @@ trait CommandTrait
      * @Type("string")
      */
     protected $CommandType;
-    /**
-     * @Type("integer")
-     */
-    protected $Version = 0;
 
     /**
      * @Type("string")
@@ -33,11 +29,6 @@ trait CommandTrait
      * @Type("string")
      */
     protected $RequesterId;
-
-    /**
-     * @Type("boolean")
-     */
-    protected $Active;
 
     /**
      * 构造函数
@@ -65,22 +56,6 @@ trait CommandTrait
     public function setCommandType($CommandType)
     {
         $this->CommandType = $CommandType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->Version;
-    }
-
-    /**
-     * @param int $Version
-     */
-    public function setVersion($Version)
-    {
-        $this->Version = $Version;
     }
 
     /**
@@ -113,21 +88,5 @@ trait CommandTrait
     public function setRequesterId($RequesterId)
     {
         $this->RequesterId = $RequesterId;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->Active;
-    }
-
-    /**
-     * @param bool $Active
-     */
-    public function setActive($Active)
-    {
-        $this->Active = $Active;
     }
 }

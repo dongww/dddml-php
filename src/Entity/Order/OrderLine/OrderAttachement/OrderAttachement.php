@@ -6,9 +6,10 @@
  */
 namespace Entity\Order\OrderLine\OrderAttachement;
 
+use Dddml\BaseEntity;
 use JMS\Serializer\Annotation\Type;
 
-class OrderAttachement
+class OrderAttachement extends BaseEntity
 {
     /**
      * @Type("string")

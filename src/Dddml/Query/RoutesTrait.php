@@ -6,10 +6,8 @@
  */
 namespace Dddml\Query;
 
-use Dddml\Command\CommandInterface;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
@@ -21,7 +19,7 @@ trait RoutesTrait
 {
     /**
      * 查询的路由集合
-     * 
+     *
      * @var  RouteCollection
      */
     protected $routes;
@@ -49,18 +47,5 @@ trait RoutesTrait
      *
      * @return RouteCollection
      */
-    protected function getRoutes()
-    {
-        if (!$this->routes) {
-            $this->routes = new RouteCollection();
-
-            $route = new Route('/Orders/{id}');
-            $this->routes->add(QueryInterface::QUERY_SINGLE, $route);
-
-            $route = new Route('/Orders');
-            $this->routes->add(QueryInterface::QUERY_LIST, $route);
-        }
-
-        return $this->routes;
-    }
+    abstract protected function getRoutes();
 }

@@ -1,7 +1,7 @@
 <?php
-use Command\Order\Order;
-use Command\Order\OrderLine\OrderAttachement\OrderAttachement;
-use Command\Order\OrderLine\OrderLine;
+use Command\Order\OrderCommand;
+use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommand;
+use Command\Order\OrderLine\OrderLineCommand;
 use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
 use Doctrine\Common\Annotations\AnnotationRegistry;
@@ -13,7 +13,7 @@ $orderLineId         = 'orderLineId001';
 $orderAttachementsId = 'orderAttachementsId001';
 $attachementTypeId   = 123;
 
-$oa = new OrderAttachement(CommandInterface::COMMAND_MERGE_PATCH);
+$oa = new OrderAttachementCommand(CommandInterface::COMMAND_MERGE_PATCH);
 
 $oa->setCommandId('commandId001');
 $oa->setRequesterId('requesterId001');
@@ -26,7 +26,7 @@ $oa->setAttachementTypeName('attachementTypeName001');
 $oa->setAttachementUrl('http://g.cn');
 $oa->setVersion(5);
 
-$ol = new OrderLine(CommandInterface::COMMAND_MERGE_PATCH);
+$ol = new OrderLineCommand(CommandInterface::COMMAND_MERGE_PATCH);
 $ol->setCommandId('commandId001');
 $ol->setRequesterId('requesterId001');
 $ol->setId($orderLineId);
@@ -51,7 +51,7 @@ $ol->setVersion(5);
 
 $ol->setOrderAttachements([$oa]);
 
-$order = new Order(CommandInterface::COMMAND_MERGE_PATCH);
+$order = new OrderCommand(CommandInterface::COMMAND_MERGE_PATCH);
 $order->setCommandId('commandId001');
 $order->setRequesterId('requesterId001');
 $order->setId($orderId);

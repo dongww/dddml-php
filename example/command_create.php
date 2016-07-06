@@ -1,7 +1,7 @@
 <?php
-use Command\Order\Order;
-use Command\Order\OrderLine\OrderAttachement\OrderAttachement;
-use Command\Order\OrderLine\OrderLine;
+use Command\Order\OrderCommand;
+use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommand;
+use Command\Order\OrderLine\OrderLineCommand;
 use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
 
@@ -12,7 +12,7 @@ $orderLineId         = 'orderLineId001';
 $orderAttachementsId = 'orderAttachementsId001';
 $attachementTypeId   = 123;
 
-$oa = new OrderAttachement(CommandInterface::COMMAND_CREATE);
+$oa = new OrderAttachementCommand(CommandInterface::COMMAND_CREATE);
 
 $oa->setCommandId('commandId001');
 $oa->setRequesterId('requesterId001');
@@ -24,7 +24,7 @@ $oa->setAttachementTypeId($attachementTypeId);
 $oa->setAttachementTypeName('attachementTypeName001');
 $oa->setAttachementUrl('http://attachement.url');
 
-$ol = new OrderLine(CommandInterface::COMMAND_CREATE);
+$ol = new OrderLineCommand(CommandInterface::COMMAND_CREATE);
 $ol->setCommandId('commandId001');
 $ol->setRequesterId('requesterId001');
 $ol->setId($orderLineId);
@@ -48,7 +48,7 @@ $ol->setStatus('status001');
 
 $ol->setOrderAttachements([$oa]);
 
-$order = new Order(CommandInterface::COMMAND_CREATE);
+$order = new OrderCommand(CommandInterface::COMMAND_CREATE);
 $order->setCommandId('commandId001');
 $order->setRequesterId('requesterId001');
 $order->setId($orderId);

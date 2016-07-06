@@ -6,10 +6,11 @@
  */
 namespace Entity\Order;
 
+use Dddml\BaseEntity;
 use Entity\Order\OrderLine\OrderLine;
 use JMS\Serializer\Annotation\Type;
 
-class Order
+class Order extends BaseEntity
 {
     /**
      * @Type("string")

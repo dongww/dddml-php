@@ -1,21 +1,20 @@
 <?php
 /**
  * User: dongww
- * Date: 2016/6/6
- * Time: 20:59
+ * Date: 2016/6/7
+ * Time: 19:48
  */
-namespace Command\Order\OrderLine;
+namespace Command\Order\OrderLine\OrderAttachement;
 
 use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
-use Entity\Order\OrderLine\OrderLine as OrderLineEntity;
+use Entity\Order\OrderLine\OrderAttachement\OrderAttachement as OrderAttachementEntity;
 use JMS\Serializer\Annotation\Type;
 
-class OrderLine extends OrderLineEntity implements CommandInterface
+class OrderAttachementCommand extends OrderAttachementEntity implements CommandInterface
 {
     use CommandTrait;
     use IsPropertyRemovedTrait;
-    use EmbeddedCommandTrait;
 
     /**
      * 获取查询对应的 URL
