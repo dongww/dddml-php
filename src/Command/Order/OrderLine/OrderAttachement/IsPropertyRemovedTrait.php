@@ -41,7 +41,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyAttachementTypeNameRemoved()
+    public function getIsPropertyAttachementTypeNameRemoved()
     {
         return $this->IsPropertyAttachementTypeNameRemoved;
     }
@@ -57,7 +57,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyAttachementUrlRemoved()
+    public function getIsPropertyAttachementUrlRemoved()
     {
         return $this->IsPropertyAttachementUrlRemoved;
     }
@@ -73,7 +73,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyAttachementTypeIdRemoved()
+    public function getIsPropertyAttachementTypeIdRemoved()
     {
         return $this->IsPropertyAttachementTypeIdRemoved;
     }
@@ -89,7 +89,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyActiveRemoved()
+    public function getIsPropertyActiveRemoved()
     {
         return $this->IsPropertyActiveRemoved;
     }

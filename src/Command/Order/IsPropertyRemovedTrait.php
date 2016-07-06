@@ -41,7 +41,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyOrderNoRemoved()
+    public function getIsPropertyOrderNoRemoved()
     {
         return $this->IsPropertyOrderNoRemoved;
     }
@@ -57,7 +57,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyStatusRemoved()
+    public function getIsPropertyStatusRemoved()
     {
         return $this->IsPropertyStatusRemoved;
     }
@@ -73,7 +73,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyDescriptionRemoved()
+    public function getIsPropertyDescriptionRemoved()
     {
         return $this->IsPropertyDescriptionRemoved;
     }
@@ -89,7 +89,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyActiveRemoved()
+    public function getIsPropertyActiveRemoved()
     {
         return $this->IsPropertyActiveRemoved;
     }

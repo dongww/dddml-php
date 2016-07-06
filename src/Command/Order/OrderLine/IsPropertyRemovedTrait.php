@@ -125,7 +125,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyProductIdRemoved()
+    public function getIsPropertyProductIdRemoved()
     {
         return $this->IsPropertyProductIdRemoved;
     }
@@ -141,7 +141,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyPoProductNoRemoved()
+    public function getIsPropertyPoProductNoRemoved()
     {
         return $this->IsPropertyPoProductNoRemoved;
     }
@@ -157,7 +157,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyProductNameRemoved()
+    public function getIsPropertyProductNameRemoved()
     {
         return $this->IsPropertyProductNameRemoved;
     }
@@ -173,7 +173,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyAttributeSetInstanceIdRemoved()
+    public function getIsPropertyAttributeSetInstanceIdRemoved()
     {
         return $this->IsPropertyAttributeSetInstanceIdRemoved;
     }
@@ -189,7 +189,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertySkuNameRemoved()
+    public function getIsPropertySkuNameRemoved()
     {
         return $this->IsPropertySkuNameRemoved;
     }
@@ -205,7 +205,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyQuantityRemoved()
+    public function getIsPropertyQuantityRemoved()
     {
         return $this->IsPropertyQuantityRemoved;
     }
@@ -221,7 +221,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyQuantityUomIdRemoved()
+    public function getIsPropertyQuantityUomIdRemoved()
     {
         return $this->IsPropertyQuantityUomIdRemoved;
     }
@@ -237,7 +237,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyListPriceRemoved()
+    public function getIsPropertyListPriceRemoved()
     {
         return $this->IsPropertyListPriceRemoved;
     }
@@ -253,7 +253,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyListPriceUomIdRemoved()
+    public function getIsPropertyListPriceUomIdRemoved()
     {
         return $this->IsPropertyListPriceUomIdRemoved;
     }
@@ -269,7 +269,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyActualPriceRemoved()
+    public function getIsPropertyActualPriceRemoved()
     {
         return $this->IsPropertyActualPriceRemoved;
     }
@@ -285,7 +285,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyActualPriceUomIdRemoved()
+    public function getIsPropertyActualPriceUomIdRemoved()
     {
         return $this->IsPropertyActualPriceUomIdRemoved;
     }
@@ -301,7 +301,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyOrganizationIdRemoved()
+    public function getIsPropertyOrganizationIdRemoved()
     {
         return $this->IsPropertyOrganizationIdRemoved;
     }
@@ -317,7 +317,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyOrganizationNameRemoved()
+    public function getIsPropertyOrganizationNameRemoved()
     {
         return $this->IsPropertyOrganizationNameRemoved;
     }
@@ -333,7 +333,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyLogisticalNoRemoved()
+    public function getIsPropertyLogisticalNoRemoved()
     {
         return $this->IsPropertyLogisticalNoRemoved;
     }
@@ -349,7 +349,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyStatusRemoved()
+    public function getIsPropertyStatusRemoved()
     {
         return $this->IsPropertyStatusRemoved;
     }
@@ -365,7 +365,7 @@ trait IsPropertyRemovedTrait
     /**
      * @return boolean
      */
-    public function isIsPropertyActiveRemoved()
+    public function getIsPropertyActiveRemoved()
     {
         return $this->IsPropertyActiveRemoved;
     }
