@@ -15,43 +15,43 @@ class Order extends BaseEntity
     /**
      * @Type("string")
      */
-    private $Id;
+    private $id;
 
     /**
      * @Type("string")
      */
-    private $OrderNo;
+    private $orderNo;
 
     /**
      * @Type("integer")
      */
-    private $Status;
+    private $status;
 
     /**
      * @Type("string")
      */
-    private $Description;
+    private $description;
 
     /**
      * @Type("array<Entity\Order\OrderLine\OrderLine>")
      * @var  OrderLine[]
      */
-    private $OrderLines;
+    private $orderLines;
 
     /**
      * @return mixed
      */
     public function getId()
     {
-        return $this->Id;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id
+     * @param mixed $id
      */
-    public function setId($Id)
+    public function setId($id)
     {
-        $this->Id = $Id;
+        $this->id = $id;
     }
 
     /**
@@ -59,15 +59,15 @@ class Order extends BaseEntity
      */
     public function getOrderNo()
     {
-        return $this->OrderNo;
+        return $this->orderNo;
     }
 
     /**
-     * @param mixed $OrderNo
+     * @param mixed $orderNo
      */
-    public function setOrderNo($OrderNo)
+    public function setOrderNo($orderNo)
     {
-        $this->OrderNo = $OrderNo;
+        $this->orderNo = $orderNo;
     }
 
     /**
@@ -75,15 +75,15 @@ class Order extends BaseEntity
      */
     public function getStatus()
     {
-        return $this->Status;
+        return $this->status;
     }
 
     /**
-     * @param mixed $Status
+     * @param mixed $status
      */
-    public function setStatus($Status)
+    public function setStatus($status)
     {
-        $this->Status = $Status;
+        $this->status = $status;
     }
 
     /**
@@ -91,15 +91,15 @@ class Order extends BaseEntity
      */
     public function getDescription()
     {
-        return $this->Description;
+        return $this->description;
     }
 
     /**
-     * @param mixed $Description
+     * @param mixed $description
      */
-    public function setDescription($Description)
+    public function setDescription($description)
     {
-        $this->Description = $Description;
+        $this->description = $description;
     }
 
     /**
@@ -107,14 +107,14 @@ class Order extends BaseEntity
      */
     public function getOrderLines()
     {
-        return $this->OrderLines;
+        return $this->orderLines;
     }
 
     /**
-     * @param OrderLine[] $OrderLines
+     * @param OrderLine[] $orderLines
      */
-    public function setOrderLines(array $OrderLines)
+    public function setOrderLines(array $orderLines)
     {
-        $this->OrderLines = $OrderLines;
+        $this->orderLines = $orderLines;
     }
 }

@@ -33,7 +33,7 @@ $ol->setId($orderLineId);
 $ol->setOrderId($orderId);
 $ol->setActive(true);
 $ol->setProductId('productId001');
-$ol->setPoProductNo('productNo001');
+$ol->setProductNo('productNo001');
 $ol->setProductName('productName001');
 $ol->setAttributeSetInstanceId('attributeSetInstanceId001');
 $ol->setSkuName('skuName001xx');

@@ -15,43 +15,43 @@ trait IsPropertyRemovedTrait
      *
      * @var bool
      */
-    private $IsPropertyOrderNoRemoved = null;
+    private $isPropertyOrderNoRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyStatusRemoved = null;
+    private $isPropertyStatusRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyDescriptionRemoved = null;
+    private $isPropertyDescriptionRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyActiveRemoved = null;
+    private $isPropertyActiveRemoved = null;
 
     /**
      * @return boolean
      */
     public function getIsPropertyOrderNoRemoved()
     {
-        return $this->IsPropertyOrderNoRemoved;
+        return $this->isPropertyOrderNoRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyOrderNoRemoved
+     * @param boolean $isPropertyOrderNoRemoved
      */
-    public function setIsPropertyOrderNoRemoved($IsPropertyOrderNoRemoved)
+    public function setIsPropertyOrderNoRemoved($isPropertyOrderNoRemoved)
     {
-        $this->IsPropertyOrderNoRemoved = $IsPropertyOrderNoRemoved;
+        $this->isPropertyOrderNoRemoved = $isPropertyOrderNoRemoved;
     }
 
     /**
@@ -59,15 +59,15 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyStatusRemoved()
     {
-        return $this->IsPropertyStatusRemoved;
+        return $this->isPropertyStatusRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyStatusRemoved
+     * @param boolean $isPropertyStatusRemoved
      */
-    public function setIsPropertyStatusRemoved($IsPropertyStatusRemoved)
+    public function setIsPropertyStatusRemoved($isPropertyStatusRemoved)
     {
-        $this->IsPropertyStatusRemoved = $IsPropertyStatusRemoved;
+        $this->isPropertyStatusRemoved = $isPropertyStatusRemoved;
     }
 
     /**
@@ -75,15 +75,15 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyDescriptionRemoved()
     {
-        return $this->IsPropertyDescriptionRemoved;
+        return $this->isPropertyDescriptionRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyDescriptionRemoved
+     * @param boolean $isPropertyDescriptionRemoved
      */
-    public function setIsPropertyDescriptionRemoved($IsPropertyDescriptionRemoved)
+    public function setIsPropertyDescriptionRemoved($isPropertyDescriptionRemoved)
     {
-        $this->IsPropertyDescriptionRemoved = $IsPropertyDescriptionRemoved;
+        $this->isPropertyDescriptionRemoved = $isPropertyDescriptionRemoved;
     }
 
     /**
@@ -91,14 +91,14 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyActiveRemoved()
     {
-        return $this->IsPropertyActiveRemoved;
+        return $this->isPropertyActiveRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyActiveRemoved
+     * @param boolean $isPropertyActiveRemoved
      */
-    public function setIsPropertyActiveRemoved($IsPropertyActiveRemoved)
+    public function setIsPropertyActiveRemoved($isPropertyActiveRemoved)
     {
-        $this->IsPropertyActiveRemoved = $IsPropertyActiveRemoved;
+        $this->isPropertyActiveRemoved = $isPropertyActiveRemoved;
     }
 }

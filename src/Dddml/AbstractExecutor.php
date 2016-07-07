@@ -6,8 +6,8 @@
  */
 namespace Dddml;
 
+use Dddml\Serializer\Naming\DddmlStrategy;
 use GuzzleHttp\Client;
-use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -57,7 +57,7 @@ abstract class AbstractExecutor
         $this->setBaseUri($baseUri);
 
         if (!$serializer) {
-            $cs   = new CamelCaseNamingStrategy('', false);
+            $cs   = new DddmlStrategy();
             $snas = new SerializedNameAnnotationStrategy($cs);
 
             $serializer = SerializerBuilder::create()

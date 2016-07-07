@@ -16,21 +16,21 @@ trait EmbeddedCommandTrait
      *
      * @var OrderAttachementCommand[]
      */
-    private $OrderAttachements;
+    private $orderAttachements;
 
     /**
      * @return OrderAttachementCommand[]
      */
     public function getOrderAttachements()
     {
-        return $this->OrderAttachements;
+        return $this->orderAttachements;
     }
 
     /**
-     * @param OrderAttachementCommand[] $OrderAttachements
+     * @param OrderAttachementCommand[] $orderAttachements
      */
-    public function setOrderAttachements(array $OrderAttachements)
+    public function setOrderAttachements(array $orderAttachements)
     {
-        $this->OrderAttachements = $OrderAttachements;
+        $this->orderAttachements = $orderAttachements;
     }
 }

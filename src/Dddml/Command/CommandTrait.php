@@ -18,17 +18,17 @@ trait CommandTrait
     /**
      * @Type("string")
      */
-    protected $CommandType;
+    protected $commandType;
 
     /**
      * @Type("string")
      */
-    protected $CommandId;
+    protected $commandId;
 
     /**
      * @Type("string")
      */
-    protected $RequesterId;
+    protected $requesterId;
 
     /**
      * 构造函数
@@ -45,17 +45,17 @@ trait CommandTrait
      */
     public function getCommandType()
     {
-        return $this->CommandType;
+        return $this->commandType;
     }
 
     /**
      * 设置命令类型
      *
-     * @param string $CommandType 命令类型
+     * @param string $commandType 命令类型
      */
-    public function setCommandType($CommandType)
+    public function setCommandType($commandType)
     {
-        $this->CommandType = $CommandType;
+        $this->commandType = $commandType;
     }
 
     /**
@@ -63,15 +63,15 @@ trait CommandTrait
      */
     public function getCommandId()
     {
-        return $this->CommandId;
+        return $this->commandId;
     }
 
     /**
-     * @param string $CommandId
+     * @param string $commandId
      */
-    public function setCommandId($CommandId)
+    public function setCommandId($commandId)
     {
-        $this->CommandId = $CommandId;
+        $this->commandId = $commandId;
     }
 
     /**
@@ -79,14 +79,14 @@ trait CommandTrait
      */
     public function getRequesterId()
     {
-        return $this->RequesterId;
+        return $this->requesterId;
     }
 
     /**
-     * @param string $RequesterId
+     * @param string $requesterId
      */
-    public function setRequesterId($RequesterId)
+    public function setRequesterId($requesterId)
     {
-        $this->RequesterId = $RequesterId;
+        $this->requesterId = $requesterId;
     }
 }

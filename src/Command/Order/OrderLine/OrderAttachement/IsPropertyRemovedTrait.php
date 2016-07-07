@@ -15,43 +15,43 @@ trait IsPropertyRemovedTrait
      *
      * @var bool
      */
-    private $IsPropertyAttachementTypeNameRemoved = null;
+    private $isPropertyAttachementTypeNameRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyAttachementUrlRemoved = null;
+    private $isPropertyAttachementUrlRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyAttachementTypeIdRemoved = null;
+    private $isPropertyAttachementTypeIdRemoved = null;
 
     /**
      * @Type("boolean")
      *
      * @var bool
      */
-    private $IsPropertyActiveRemoved = null;
+    private $isPropertyActiveRemoved = null;
 
     /**
      * @return boolean
      */
     public function getIsPropertyAttachementTypeNameRemoved()
     {
-        return $this->IsPropertyAttachementTypeNameRemoved;
+        return $this->isPropertyAttachementTypeNameRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyAttachementTypeNameRemoved
+     * @param boolean $isPropertyAttachementTypeNameRemoved
      */
-    public function setIsPropertyAttachementTypeNameRemoved($IsPropertyAttachementTypeNameRemoved)
+    public function setIsPropertyAttachementTypeNameRemoved($isPropertyAttachementTypeNameRemoved)
     {
-        $this->IsPropertyAttachementTypeNameRemoved = $IsPropertyAttachementTypeNameRemoved;
+        $this->isPropertyAttachementTypeNameRemoved = $isPropertyAttachementTypeNameRemoved;
     }
 
     /**
@@ -59,15 +59,15 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyAttachementUrlRemoved()
     {
-        return $this->IsPropertyAttachementUrlRemoved;
+        return $this->isPropertyAttachementUrlRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyAttachementUrlRemoved
+     * @param boolean $isPropertyAttachementUrlRemoved
      */
-    public function setIsPropertyAttachementUrlRemoved($IsPropertyAttachementUrlRemoved)
+    public function setIsPropertyAttachementUrlRemoved($isPropertyAttachementUrlRemoved)
     {
-        $this->IsPropertyAttachementUrlRemoved = $IsPropertyAttachementUrlRemoved;
+        $this->isPropertyAttachementUrlRemoved = $isPropertyAttachementUrlRemoved;
     }
 
     /**
@@ -75,15 +75,15 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyAttachementTypeIdRemoved()
     {
-        return $this->IsPropertyAttachementTypeIdRemoved;
+        return $this->isPropertyAttachementTypeIdRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyAttachementTypeIdRemoved
+     * @param boolean $isPropertyAttachementTypeIdRemoved
      */
-    public function setIsPropertyAttachementTypeIdRemoved($IsPropertyAttachementTypeIdRemoved)
+    public function setIsPropertyAttachementTypeIdRemoved($isPropertyAttachementTypeIdRemoved)
     {
-        $this->IsPropertyAttachementTypeIdRemoved = $IsPropertyAttachementTypeIdRemoved;
+        $this->isPropertyAttachementTypeIdRemoved = $isPropertyAttachementTypeIdRemoved;
     }
 
     /**
@@ -91,14 +91,14 @@ trait IsPropertyRemovedTrait
      */
     public function getIsPropertyActiveRemoved()
     {
-        return $this->IsPropertyActiveRemoved;
+        return $this->isPropertyActiveRemoved;
     }
 
     /**
-     * @param boolean $IsPropertyActiveRemoved
+     * @param boolean $isPropertyActiveRemoved
      */
-    public function setIsPropertyActiveRemoved($IsPropertyActiveRemoved)
+    public function setIsPropertyActiveRemoved($isPropertyActiveRemoved)
     {
-        $this->IsPropertyActiveRemoved = $IsPropertyActiveRemoved;
+        $this->isPropertyActiveRemoved = $isPropertyActiveRemoved;
     }
 }

@@ -14,108 +14,108 @@ class OrderLine extends BaseEntity
     /**
      * @Type("string")
      */
-    private $Id;
+    private $id;
 
     /**
      * @Type("string")
      */
-    private $ProductId;
+    private $productId;
 
     /**
      * @Type("string")
      */
-    private $PoProductNo;
+    private $productNo;
 
     /**
      * @Type("string")
      */
-    private $ProductName;
+    private $productName;
 
     /**
      * @Type("string")
      */
-    private $AttributeSetInstanceId;
+    private $attributeSetInstanceId;
 
     /**
      * @Type("string")
      */
-    private $SkuName;
+    private $skuName;
 
     /**
      * @Type("double")
      */
-    private $Quantity;
+    private $quantity;
 
     /**
      * @Type("string")
      */
-    private $QuantityUomId;
+    private $quantityUomId;
 
     /**
      * @Type("double")
      */
-    private $ListPrice;
+    private $listPrice;
 
     /**
      * @Type("string")
      */
-    private $ListPriceUomId;
+    private $listPriceUomId;
 
     /**
      * @Type("double")
      */
-    private $ActualPrice;
+    private $actualPrice;
 
     /**
      * @Type("string")
      */
-    private $ActualPriceUomId;
+    private $actualPriceUomId;
 
     /**
      * @Type("string")
      */
-    private $OrganizationId;
+    private $organizationId;
 
     /**
      * @Type("string")
      */
-    private $OrganizationName;
+    private $organizationName;
 
     /**
      * @Type("string")
      */
-    private $LogisticalNo;
+    private $logisticalNo;
 
     /**
      * @Type("integer")
      */
-    private $Status;
+    private $status;
 
     /**
      * @Type("string")
      */
-    private $OrderId;
+    private $orderId;
 
     /**
      * @Type("array<Entity\Order\OrderLine\OrderAttachements\OrderAttachements>")
      * @var array
      */
-    private $OrderAttachements;
+    private $orderAttachements;
 
     /**
      * @return mixed
      */
     public function getId()
     {
-        return $this->Id;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id
+     * @param mixed $id
      */
-    public function setId($Id)
+    public function setId($id)
     {
-        $this->Id = $Id;
+        $this->id = $id;
     }
 
     /**
@@ -123,31 +123,31 @@ class OrderLine extends BaseEntity
      */
     public function getProductId()
     {
-        return $this->ProductId;
+        return $this->productId;
     }
 
     /**
-     * @param mixed $ProductId
+     * @param mixed $productId
      */
-    public function setProductId($ProductId)
+    public function setProductId($productId)
     {
-        $this->ProductId = $ProductId;
+        $this->productId = $productId;
     }
 
     /**
      * @return mixed
      */
-    public function getPoProductNo()
+    public function getProductNo()
     {
-        return $this->PoProductNo;
+        return $this->productNo;
     }
 
     /**
-     * @param mixed $PoProductNo
+     * @param mixed $productNo
      */
-    public function setPoProductNo($PoProductNo)
+    public function setProductNo($productNo)
     {
-        $this->PoProductNo = $PoProductNo;
+        $this->productNo = $productNo;
     }
 
     /**
@@ -155,15 +155,15 @@ class OrderLine extends BaseEntity
      */
     public function getProductName()
     {
-        return $this->ProductName;
+        return $this->productName;
     }
 
     /**
-     * @param mixed $ProductName
+     * @param mixed $productName
      */
-    public function setProductName($ProductName)
+    public function setProductName($productName)
     {
-        $this->ProductName = $ProductName;
+        $this->productName = $productName;
     }
 
     /**
@@ -171,15 +171,15 @@ class OrderLine extends BaseEntity
      */
     public function getAttributeSetInstanceId()
     {
-        return $this->AttributeSetInstanceId;
+        return $this->attributeSetInstanceId;
     }
 
     /**
-     * @param mixed $AttributeSetInstanceId
+     * @param mixed $attributeSetInstanceId
      */
-    public function setAttributeSetInstanceId($AttributeSetInstanceId)
+    public function setAttributeSetInstanceId($attributeSetInstanceId)
     {
-        $this->AttributeSetInstanceId = $AttributeSetInstanceId;
+        $this->attributeSetInstanceId = $attributeSetInstanceId;
     }
 
     /**
@@ -187,15 +187,15 @@ class OrderLine extends BaseEntity
      */
     public function getSkuName()
     {
-        return $this->SkuName;
+        return $this->skuName;
     }
 
     /**
-     * @param mixed $SkuName
+     * @param mixed $skuName
      */
-    public function setSkuName($SkuName)
+    public function setSkuName($skuName)
     {
-        $this->SkuName = $SkuName;
+        $this->skuName = $skuName;
     }
 
     /**
@@ -203,15 +203,15 @@ class OrderLine extends BaseEntity
      */
     public function getQuantity()
     {
-        return $this->Quantity;
+        return $this->quantity;
     }
 
     /**
-     * @param mixed $Quantity
+     * @param mixed $quantity
      */
-    public function setQuantity($Quantity)
+    public function setQuantity($quantity)
     {
-        $this->Quantity = $Quantity;
+        $this->quantity = $quantity;
     }
 
     /**
@@ -219,15 +219,15 @@ class OrderLine extends BaseEntity
      */
     public function getQuantityUomId()
     {
-        return $this->QuantityUomId;
+        return $this->quantityUomId;
     }
 
     /**
-     * @param mixed $QuantityUomId
+     * @param mixed $quantityUomId
      */
-    public function setQuantityUomId($QuantityUomId)
+    public function setQuantityUomId($quantityUomId)
     {
-        $this->QuantityUomId = $QuantityUomId;
+        $this->quantityUomId = $quantityUomId;
     }
 
     /**
@@ -235,15 +235,15 @@ class OrderLine extends BaseEntity
      */
     public function getListPrice()
     {
-        return $this->ListPrice;
+        return $this->listPrice;
     }
 
     /**
-     * @param mixed $ListPrice
+     * @param mixed $listPrice
      */
-    public function setListPrice($ListPrice)
+    public function setListPrice($listPrice)
     {
-        $this->ListPrice = $ListPrice;
+        $this->listPrice = $listPrice;
     }
 
     /**
@@ -251,15 +251,15 @@ class OrderLine extends BaseEntity
      */
     public function getListPriceUomId()
     {
-        return $this->ListPriceUomId;
+        return $this->listPriceUomId;
     }
 
     /**
-     * @param mixed $ListPriceUomId
+     * @param mixed $listPriceUomId
      */
-    public function setListPriceUomId($ListPriceUomId)
+    public function setListPriceUomId($listPriceUomId)
     {
-        $this->ListPriceUomId = $ListPriceUomId;
+        $this->listPriceUomId = $listPriceUomId;
     }
 
     /**
@@ -267,15 +267,15 @@ class OrderLine extends BaseEntity
      */
     public function getActualPrice()
     {
-        return $this->ActualPrice;
+        return $this->actualPrice;
     }
 
     /**
-     * @param mixed $ActualPrice
+     * @param mixed $actualPrice
      */
-    public function setActualPrice($ActualPrice)
+    public function setActualPrice($actualPrice)
     {
-        $this->ActualPrice = $ActualPrice;
+        $this->actualPrice = $actualPrice;
     }
 
     /**
@@ -283,15 +283,15 @@ class OrderLine extends BaseEntity
      */
     public function getActualPriceUomId()
     {
-        return $this->ActualPriceUomId;
+        return $this->actualPriceUomId;
     }
 
     /**
-     * @param mixed $ActualPriceUomId
+     * @param mixed $actualPriceUomId
      */
-    public function setActualPriceUomId($ActualPriceUomId)
+    public function setActualPriceUomId($actualPriceUomId)
     {
-        $this->ActualPriceUomId = $ActualPriceUomId;
+        $this->actualPriceUomId = $actualPriceUomId;
     }
 
     /**
@@ -299,15 +299,15 @@ class OrderLine extends BaseEntity
      */
     public function getOrganizationId()
     {
-        return $this->OrganizationId;
+        return $this->organizationId;
     }
 
     /**
-     * @param mixed $OrganizationId
+     * @param mixed $organizationId
      */
-    public function setOrganizationId($OrganizationId)
+    public function setOrganizationId($organizationId)
     {
-        $this->OrganizationId = $OrganizationId;
+        $this->organizationId = $organizationId;
     }
 
     /**
@@ -315,15 +315,15 @@ class OrderLine extends BaseEntity
      */
     public function getOrganizationName()
     {
-        return $this->OrganizationName;
+        return $this->organizationName;
     }
 
     /**
-     * @param mixed $OrganizationName
+     * @param mixed $organizationName
      */
-    public function setOrganizationName($OrganizationName)
+    public function setOrganizationName($organizationName)
     {
-        $this->OrganizationName = $OrganizationName;
+        $this->organizationName = $organizationName;
     }
 
     /**
@@ -331,15 +331,15 @@ class OrderLine extends BaseEntity
      */
     public function getLogisticalNo()
     {
-        return $this->LogisticalNo;
+        return $this->logisticalNo;
     }
 
     /**
-     * @param mixed $LogisticalNo
+     * @param mixed $logisticalNo
      */
-    public function setLogisticalNo($LogisticalNo)
+    public function setLogisticalNo($logisticalNo)
     {
-        $this->LogisticalNo = $LogisticalNo;
+        $this->logisticalNo = $logisticalNo;
     }
 
     /**
@@ -347,15 +347,15 @@ class OrderLine extends BaseEntity
      */
     public function getStatus()
     {
-        return $this->Status;
+        return $this->status;
     }
 
     /**
-     * @param mixed $Status
+     * @param mixed $status
      */
-    public function setStatus($Status)
+    public function setStatus($status)
     {
-        $this->Status = $Status;
+        $this->status = $status;
     }
 
     /**
@@ -363,15 +363,15 @@ class OrderLine extends BaseEntity
      */
     public function getOrderId()
     {
-        return $this->OrderId;
+        return $this->orderId;
     }
 
     /**
-     * @param mixed $OrderId
+     * @param mixed $orderId
      */
-    public function setOrderId($OrderId)
+    public function setOrderId($orderId)
     {
-        $this->OrderId = $OrderId;
+        $this->orderId = $orderId;
     }
 
     /**
@@ -379,14 +379,14 @@ class OrderLine extends BaseEntity
      */
     public function getOrderAttachements()
     {
-        return $this->OrderAttachements;
+        return $this->orderAttachements;
     }
 
     /**
-     * @param array $OrderAttachements
+     * @param array $orderAttachements
      */
-    public function setOrderAttachements(array $OrderAttachements)
+    public function setOrderAttachements(array $orderAttachements)
     {
-        $this->OrderAttachements = $OrderAttachements;
+        $this->orderAttachements = $orderAttachements;
     }
 }

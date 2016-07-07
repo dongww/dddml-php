@@ -14,47 +14,47 @@ class OrderAttachement extends BaseEntity
     /**
      * @Type("string")
      */
-    private $Id;
+    private $id;
 
     /**
      * @Type("string")
      */
-    private $AttachementTypeName;
+    private $attachementTypeName;
 
     /**
      * @Type("string")
      */
-    private $AttachementUrl;
+    private $attachementUrl;
 
     /**
      * @Type("integer")
      */
-    private $AttachementTypeId;
+    private $attachementTypeId;
 
     /**
      * @Type("string")
      */
-    private $OrderId;
+    private $orderId;
 
     /**
      * @Type("string")
      */
-    private $OrderLineId;
+    private $orderLineId;
 
     /**
      * @return mixed
      */
     public function getId()
     {
-        return $this->Id;
+        return $this->id;
     }
 
     /**
-     * @param mixed $Id
+     * @param mixed $id
      */
-    public function setId($Id)
+    public function setId($id)
     {
-        $this->Id = $Id;
+        $this->id = $id;
     }
 
     /**
@@ -62,15 +62,15 @@ class OrderAttachement extends BaseEntity
      */
     public function getAttachementTypeName()
     {
-        return $this->AttachementTypeName;
+        return $this->attachementTypeName;
     }
 
     /**
-     * @param mixed $AttachementTypeName
+     * @param mixed $attachementTypeName
      */
-    public function setAttachementTypeName($AttachementTypeName)
+    public function setAttachementTypeName($attachementTypeName)
     {
-        $this->AttachementTypeName = $AttachementTypeName;
+        $this->attachementTypeName = $attachementTypeName;
     }
 
     /**
@@ -78,15 +78,15 @@ class OrderAttachement extends BaseEntity
      */
     public function getAttachementUrl()
     {
-        return $this->AttachementUrl;
+        return $this->attachementUrl;
     }
 
     /**
-     * @param mixed $AttachementUrl
+     * @param mixed $attachementUrl
      */
-    public function setAttachementUrl($AttachementUrl)
+    public function setAttachementUrl($attachementUrl)
     {
-        $this->AttachementUrl = $AttachementUrl;
+        $this->attachementUrl = $attachementUrl;
     }
 
     /**
@@ -94,15 +94,15 @@ class OrderAttachement extends BaseEntity
      */
     public function getAttachementTypeId()
     {
-        return $this->AttachementTypeId;
+        return $this->attachementTypeId;
     }
 
     /**
-     * @param mixed $AttachementTypeId
+     * @param mixed $attachementTypeId
      */
-    public function setAttachementTypeId($AttachementTypeId)
+    public function setAttachementTypeId($attachementTypeId)
     {
-        $this->AttachementTypeId = $AttachementTypeId;
+        $this->attachementTypeId = $attachementTypeId;
     }
 
     /**
@@ -110,15 +110,15 @@ class OrderAttachement extends BaseEntity
      */
     public function getOrderId()
     {
-        return $this->OrderId;
+        return $this->orderId;
     }
 
     /**
-     * @param mixed $OrderId
+     * @param mixed $orderId
      */
-    public function setOrderId($OrderId)
+    public function setOrderId($orderId)
     {
-        $this->OrderId = $OrderId;
+        $this->orderId = $orderId;
     }
 
     /**
@@ -126,14 +126,14 @@ class OrderAttachement extends BaseEntity
      */
     public function getOrderLineId()
     {
-        return $this->OrderLineId;
+        return $this->orderLineId;
     }
 
     /**
-     * @param mixed $OrderLineId
+     * @param mixed $orderLineId
      */
-    public function setOrderLineId($OrderLineId)
+    public function setOrderLineId($orderLineId)
     {
-        $this->OrderLineId = $OrderLineId;
+        $this->orderLineId = $orderLineId;
     }
 }

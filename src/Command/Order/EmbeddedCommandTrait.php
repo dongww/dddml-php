@@ -16,22 +16,22 @@ trait EmbeddedCommandTrait
      *
      * @var OrderLineCommand[]
      */
-    private $OrderLines;
+    private $orderLines;
 
     /**
      * @return OrderLineCommand[]
      */
     public function getOrderLines()
     {
-        return $this->OrderLines;
+        return $this->orderLines;
     }
 
     /**
-     * @param OrderLineCommand[] $OrderLines
+     * @param OrderLineCommand[] $orderLines
      */
-    public function setOrderLines(array $OrderLines)
+    public function setOrderLines(array $orderLines)
     {
-        $this->OrderLines = $OrderLines;
+        $this->orderLines = $orderLines;
     }
 
     /**
@@ -39,6 +39,6 @@ trait EmbeddedCommandTrait
      */
     public function addOrderLine(OrderLineCommand $orderLine)
     {
-        $this->OrderLines[] = $orderLine;
+        $this->orderLines[] = $orderLine;
     }
 }
