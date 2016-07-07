@@ -14,27 +14,27 @@ class BaseEntity
     /**
      * @Type("integer")
      */
-    protected $Version = 0;
+    protected $version = 0;
 
     /**
      * @Type("boolean")
      */
-    protected $Active;
+    protected $active;
 
     /**
      * @return int
      */
     public function getVersion()
     {
-        return $this->Version;
+        return $this->version;
     }
 
     /**
-     * @param int $Version
+     * @param int $version
      */
-    public function setVersion($Version)
+    public function setVersion($version)
     {
-        $this->Version = $Version;
+        $this->version = $version;
     }
 
     /**
@@ -42,14 +42,14 @@ class BaseEntity
      */
     public function getActive()
     {
-        return $this->Active;
+        return $this->active;
     }
 
     /**
-     * @param bool $Active
+     * @param bool $active
      */
-    public function setActive($Active)
+    public function setActive($active)
     {
-        $this->Active = $Active;
+        $this->active = $active;
     }
 }
