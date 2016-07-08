@@ -11,5 +11,5 @@ use JMS\Serializer\Annotation\Type;
 
 class OrderAttachement
 {
-    use OrderAttachementFieldsTrait;
+    use StateTrait, OrderAttachementFieldsTrait;
 }

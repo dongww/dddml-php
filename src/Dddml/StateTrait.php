@@ -4,7 +4,6 @@
  * Date: 2016/7/4
  * Time: 19:45
  */
-
 namespace Dddml;
 
 use JMS\Serializer\Annotation\Type;

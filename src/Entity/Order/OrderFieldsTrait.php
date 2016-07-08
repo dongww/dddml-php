@@ -7,7 +7,6 @@
 namespace Entity\Order;
 
 use Dddml\StateTrait;
-use Entity\Order\OrderLine\OrderLine;
 use JMS\Serializer\Annotation\Type;
 
 trait OrderFieldsTrait

@@ -4,7 +4,6 @@
  * Date: 2016/7/7
  * Time: 20:27
  */
-
 namespace Dddml\Routing;
 
 use Symfony\Component\Routing\Generator\UrlGenerator as BaseGenerator;

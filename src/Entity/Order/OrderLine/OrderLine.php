@@ -11,5 +11,5 @@ use JMS\Serializer\Annotation\Type;
 
 class OrderLine
 {
-    use OrderLineFieldsTrait;
+    use StateTrait, OrderLineFieldsTrait, OrderLineEmbeddedTrait;
 }
