@@ -98,12 +98,6 @@ trait OrderLineFieldsTrait
     private $orderId;
 
     /**
-     * @Type("array<Entity\Order\OrderLine\OrderAttachements\OrderAttachements>")
-     * @var array
-     */
-    private $orderAttachements;
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -373,21 +367,5 @@ trait OrderLineFieldsTrait
     public function setOrderId($orderId)
     {
         $this->orderId = $orderId;
-    }
-
-    /**
-     * @return array
-     */
-    public function getOrderAttachements()
-    {
-        return $this->orderAttachements;
-    }
-
-    /**
-     * @param array $orderAttachements
-     */
-    public function setOrderAttachements(array $orderAttachements)
-    {
-        $this->orderAttachements = $orderAttachements;
     }
 }

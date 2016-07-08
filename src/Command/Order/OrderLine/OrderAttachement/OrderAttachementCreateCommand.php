@@ -6,17 +6,33 @@
  */
 namespace Command\Order\OrderLine\OrderAttachement;
 
+use Dddml\Command\CommandBodyInterface;
 use Dddml\Command\CommandInterface;
-use Dddml\Command\CommandTrait;
 use Dddml\Routing\RouteTrait;
-use Entity\Order\OrderLine\OrderAttachement\OrderAttachementFieldsTrait;
 
 class OrderAttachementCreateCommand implements CommandInterface
 {
-    use OrderAttachementFieldsTrait, CommandTrait, IsPropertyRemovedTrait, RouteTrait;
+    use RouteTrait;
+
+    /**
+     * @var CommandBodyInterface
+     */
+    private $body;
 
     public function getMethod()
     {
         return '';
+    }
+
+    /**
+     * @return OrderAttachementCommandBody
+     */
+    public function getBody()
+    {
+        if (!$this->body) {
+            $this->body = new OrderAttachementCommandBody();
+        }
+
+        return $this->body;
     }
 }

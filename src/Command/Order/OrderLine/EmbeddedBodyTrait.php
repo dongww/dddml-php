@@ -6,20 +6,20 @@
  */
 namespace Command\Order\OrderLine;
 
-use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommand;
+use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommandBody;
 use JMS\Serializer\Annotation\Type;
 
-trait EmbeddedCommandTrait
+trait EmbeddedBodyTrait
 {
     /**
-     * @Type("array<Command\Order\OrderLine\OrderAttachement\OrderAttachement>")
+     * @Type("array<Command\Order\OrderLine\OrderAttachement\OrderAttachementCommandBody>")
      *
-     * @var OrderAttachementCommand[]
+     * @var OrderAttachementCommandBody[]
      */
     private $orderAttachements;
 
     /**
-     * @return OrderAttachementCommand[]
+     * @return OrderAttachementCommandBody[]
      */
     public function getOrderAttachements()
     {
@@ -27,7 +27,7 @@ trait EmbeddedCommandTrait
     }
 
     /**
-     * @param OrderAttachementCommand[] $orderAttachements
+     * @param OrderAttachementCommandBody[] $orderAttachements
      */
     public function setOrderAttachements(array $orderAttachements)
     {

@@ -20,13 +20,6 @@ interface CommandInterface
     const COMMAND_DELETE      = 'Delete';
 
     /**
-     * 获取命令类型
-     * 
-     * @return string
-     */
-    public function getCommandType();
-
-    /**
      * 获取执行的 http 方法
      * 
      * @return string
@@ -39,7 +32,7 @@ interface CommandInterface
     public function getRoute();
 
     /**
-     * @return CommandInterface
+     * @return CommandBodyInterface
      */
     public function getBody();
 }

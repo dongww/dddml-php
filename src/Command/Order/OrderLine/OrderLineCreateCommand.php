@@ -6,17 +6,33 @@
  */
 namespace Command\Order\OrderLine;
 
+use Dddml\Command\CommandBodyInterface;
 use Dddml\Command\CommandInterface;
-use Dddml\Command\CommandTrait;
 use Dddml\Routing\RouteTrait;
-use Entity\Order\OrderLine\OrderLineFieldsTrait;
 
 class OrderLineCreateCommand implements CommandInterface
 {
-    use OrderLineFieldsTrait, CommandTrait, IsPropertyRemovedTrait, RouteTrait;
+    use RouteTrait;
+
+    /**
+     * @var CommandBodyInterface
+     */
+    private $body;
 
     public function getMethod()
     {
         return '';
+    }
+
+    /**
+     * @return OrderLineCommandBody
+     */
+    public function getBody()
+    {
+        if (!$this->body) {
+            $this->body = new OrderLineCommandBody();
+        }
+
+        return $this->body;
     }
 }
