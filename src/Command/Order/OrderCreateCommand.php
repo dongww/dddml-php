@@ -17,7 +17,7 @@ class OrderCreateCommand implements CommandInterface
     use RouteTrait;
 
     /**
-     * @var CommandBodyInterface
+     * @var OrderCommandBody
      */
     private $body;
 

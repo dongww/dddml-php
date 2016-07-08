@@ -15,7 +15,7 @@ class OrderAttachementCreateCommand implements CommandInterface
     use RouteTrait;
 
     /**
-     * @var CommandBodyInterface
+     * @var OrderAttachementCommandBody
      */
     private $body;
 
