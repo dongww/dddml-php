@@ -6,7 +6,6 @@
  */
 namespace Command\Order;
 
-use Dddml\Command\CommandBodyInterface;
 use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
 use Dddml\Routing\RouteTrait;
