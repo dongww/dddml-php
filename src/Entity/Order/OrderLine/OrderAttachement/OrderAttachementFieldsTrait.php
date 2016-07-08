@@ -6,10 +6,12 @@
  */
 namespace Entity\Order\OrderLine\OrderAttachement;
 
+use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
 
 trait OrderAttachementFieldsTrait
 {
+    use StateTrait;
     /**
      * @Type("string")
      */

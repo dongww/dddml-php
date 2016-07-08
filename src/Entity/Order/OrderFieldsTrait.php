@@ -6,11 +6,14 @@
  */
 namespace Entity\Order;
 
+use Dddml\StateTrait;
 use Entity\Order\OrderLine\OrderLine;
 use JMS\Serializer\Annotation\Type;
 
 trait OrderFieldsTrait
 {
+    use StateTrait;
+
     /**
      * @Type("string")
      */
@@ -30,12 +33,6 @@ trait OrderFieldsTrait
      * @Type("string")
      */
     private $description;
-
-    /**
-     * @Type("array<Entity\Order\OrderLine\OrderLine>")
-     * @var  OrderLine[]
-     */
-    private $orderLines;
 
     /**
      * @return mixed
@@ -99,21 +96,5 @@ trait OrderFieldsTrait
     public function setDescription($description)
     {
         $this->description = $description;
-    }
-
-    /**
-     * @return OrderLine[]
-     */
-    public function getOrderLines()
-    {
-        return $this->orderLines;
-    }
-
-    /**
-     * @param OrderLine[] $orderLines
-     */
-    public function setOrderLines(array $orderLines)
-    {
-        $this->orderLines = $orderLines;
     }
 }

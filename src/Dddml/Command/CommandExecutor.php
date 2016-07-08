@@ -7,6 +7,8 @@
 namespace Dddml\Command;
 
 use Dddml\AbstractExecutor;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\RequestContext;
 
 /**
  * 命令执行类，所有的命令都经由此类来执行
@@ -15,13 +17,6 @@ use Dddml\AbstractExecutor;
  */
 class CommandExecutor extends AbstractExecutor
 {
-    /**
-     * @var array 不包含 Body 的命令
-     */
-    public static $noBodyMethods = [
-        CommandInterface::COMMAND_DELETE,
-    ];
-
     /**
      * @var array 命令类型和 HTTP 方法的映射表
      */
@@ -41,16 +36,18 @@ class CommandExecutor extends AbstractExecutor
      */
     public function execute(CommandInterface $command, array $option = [])
     {
-        $commandType = $command->getCommandType();
+        $routes = $this->getRoutes();
+        $routes->add('route', $command->getRoute());
 
-        $url = $command->getUrl(
-            $commandType,
-            $this->baseUri,
-            $option['parameters'] ?: []
+        $generator = new UrlGenerator(
+            $routes,
+            new RequestContext($this->baseUri)
         );
 
+        $url = $generator->generate('route', $option['parameters'] ?: []);
+
         $response = $this->client->request(
-            static::$commandMethodMap[$commandType],
+            $command->getMethod(),
             $url,
             $this->getClientOption($command, $option)
         );
@@ -72,11 +69,8 @@ class CommandExecutor extends AbstractExecutor
     ) {
         $clientOption = parent::__getClientOption($extOption);
 
-        if (!in_array(
-            $command->getCommandType(),
-            static::$noBodyMethods)
-        ) {
-            $clientOption['body'] = $this->serializer->serialize($command, 'json');
+        if ($body = $command->getBody()) {
+            $clientOption['body'] = $this->serializer->serialize($body, 'json');
         }
 
         return $clientOption;

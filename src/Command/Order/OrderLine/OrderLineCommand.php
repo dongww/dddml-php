@@ -9,11 +9,14 @@ namespace Command\Order\OrderLine;
 use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
 use Entity\Order\OrderLine\OrderLine as OrderLineEntity;
+use Entity\Order\OrderLine\OrderLineFieldsTrait;
 use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Routing\Route;
 
-class OrderLineCommand extends OrderLineEntity implements CommandInterface
+class OrderLineCommand implements CommandInterface
 {
     use CommandTrait;
+    use OrderLineFieldsTrait;
     use IsPropertyRemovedTrait;
     use EmbeddedCommandTrait;
 
@@ -29,5 +32,23 @@ class OrderLineCommand extends OrderLineEntity implements CommandInterface
     public function getUrl($type, $baseUri, array $parameters = [])
     {
         return null;
+    }
+
+    /**
+     * 获取执行的 http 方法
+     *
+     * @return string
+     */
+    public function getMethod()
+    {
+        // TODO: Implement getMethod() method.
+    }
+
+    /**
+     * @return Route
+     */
+    public function getRoute()
+    {
+        // TODO: Implement getRoute() method.
     }
 }

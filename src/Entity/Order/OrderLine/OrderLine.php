@@ -6,11 +6,10 @@
  */
 namespace Entity\Order\OrderLine;
 
-use Dddml\BaseEntity;
-use Entity\Order\OrderFieldsTrait;
+use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
 
-class OrderLine extends BaseEntity
+class OrderLine
 {
     use OrderLineFieldsTrait;
 }

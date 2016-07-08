@@ -11,6 +11,8 @@ use GuzzleHttp\Client;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\RouteCollection;
 
 /**
  * 查询执行类和命令执行类的基类
@@ -50,6 +52,13 @@ abstract class AbstractExecutor
     /** @var  Auth */
     protected $auth = null;
 
+    /**
+     * 命令的路由集合
+     *
+     * @var  RouteCollection
+     */
+    protected $routes;
+
     public static $defaultClientOption = [
         'headers' => [
             'Content-Type' => 'application/json',
@@ -81,6 +90,8 @@ abstract class AbstractExecutor
         $this->client = new Client([
             'base_uri' => $this->baseUri,
         ]);
+        
+        $this->routes = new RouteCollection();
 
         $this->setOption($option);
     }
@@ -182,5 +193,18 @@ abstract class AbstractExecutor
         }
 
         return $clientOption;
+    }
+
+    public function addRoute($name, Route $route)
+    {
+        $this->routes->add($name, $route);
+    }
+
+    /**
+     * @return RouteCollection
+     */
+    public function getRoutes()
+    {
+        return $this->routes;
     }
 }

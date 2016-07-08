@@ -7,19 +7,20 @@
 namespace Command\Order;
 
 use Command\Order\OrderLine\OrderLineCommand;
+use Command\Order\OrderLine\OrderLineCreateCommand;
 use JMS\Serializer\Annotation\Type;
 
 trait EmbeddedCommandTrait
 {
     /**
-     * @Type("array<Command\Order\OrderLine\OrderLine>")
+     * @Type("array<Command\Order\OrderLine\OrderLineCreateCommand>")
      *
-     * @var OrderLineCommand[]
+     * @var OrderLineCreateCommand[]
      */
     private $orderLines;
 
     /**
-     * @return OrderLineCommand[]
+     * @return OrderLineCreateCommand[]
      */
     public function getOrderLines()
     {
@@ -27,7 +28,7 @@ trait EmbeddedCommandTrait
     }
 
     /**
-     * @param OrderLineCommand[] $orderLines
+     * @param OrderLineCreateCommand[] $orderLines
      */
     public function setOrderLines(array $orderLines)
     {
@@ -35,9 +36,9 @@ trait EmbeddedCommandTrait
     }
 
     /**
-     * @param OrderLineCommand $orderLine
+     * @param OrderLineCreateCommand $orderLine
      */
-    public function addOrderLine(OrderLineCommand $orderLine)
+    public function addOrderLine(OrderLineCreateCommand $orderLine)
     {
         $this->orderLines[] = $orderLine;
     }

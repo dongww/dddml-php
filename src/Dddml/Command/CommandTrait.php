@@ -31,13 +31,13 @@ trait CommandTrait
     protected $requesterId;
 
     /**
-     * 构造函数
+     * 设置命令类型
      *
      * @param string $commandType 命令类型
      */
-    public function __construct($commandType = null)
+    public function setCommandType($commandType)
     {
-        $this->setCommandType($commandType);
+        $this->commandType = $commandType;
     }
 
     /**
@@ -46,16 +46,6 @@ trait CommandTrait
     public function getCommandType()
     {
         return $this->commandType;
-    }
-
-    /**
-     * 设置命令类型
-     *
-     * @param string $commandType 命令类型
-     */
-    public function setCommandType($commandType)
-    {
-        $this->commandType = $commandType;
     }
 
     /**
@@ -88,5 +78,13 @@ trait CommandTrait
     public function setRequesterId($requesterId)
     {
         $this->requesterId = $requesterId;
+    }
+
+    /**
+     * @return CommandInterface
+     */
+    public function getBody()
+    {
+        return $this;
     }
 }

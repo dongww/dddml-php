@@ -9,7 +9,7 @@ namespace Dddml;
 
 use JMS\Serializer\Annotation\Type;
 
-class BaseEntity
+trait StateTrait
 {
     /**
      * @Type("integer")

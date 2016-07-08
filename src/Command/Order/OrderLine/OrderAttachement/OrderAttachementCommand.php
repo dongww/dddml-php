@@ -8,25 +8,31 @@ namespace Command\Order\OrderLine\OrderAttachement;
 
 use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
-use Entity\Order\OrderLine\OrderAttachement\OrderAttachement as OrderAttachementEntity;
+use Entity\Order\OrderLine\OrderAttachement\OrderAttachementFieldsTrait;
 use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Routing\Route;
 
-class OrderAttachementCommand extends OrderAttachementEntity implements CommandInterface
+class OrderAttachementCommand implements CommandInterface
 {
     use CommandTrait;
+    use OrderAttachementFieldsTrait;
     use IsPropertyRemovedTrait;
 
     /**
-     * 获取查询对应的 URL
-     *
-     * @param string $type 执行的类型
-     * @param        $baseUri
-     * @param array  $parameters
+     * 获取执行的 http 方法
      *
      * @return string
      */
-    public function getUrl($type, $baseUri, array $parameters = [])
+    public function getMethod()
     {
-        return null;
+        return '';
+    }
+
+    /**
+     * @return Route
+     */
+    public function getRoute()
+    {
+        return '';
     }
 }

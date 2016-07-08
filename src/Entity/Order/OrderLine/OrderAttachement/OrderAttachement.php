@@ -6,10 +6,10 @@
  */
 namespace Entity\Order\OrderLine\OrderAttachement;
 
-use Dddml\BaseEntity;
+use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
 
-class OrderAttachement extends BaseEntity
+class OrderAttachement
 {
     use OrderAttachementFieldsTrait;
 }

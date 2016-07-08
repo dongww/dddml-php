@@ -6,6 +6,8 @@
  */
 namespace Dddml\Command;
 
+use Symfony\Component\Routing\Route;
+
 /**
  * 命令类需要遵循的接口
  *
@@ -18,18 +20,26 @@ interface CommandInterface
     const COMMAND_DELETE      = 'Delete';
 
     /**
-     * @return string 获取命令类型
+     * 获取命令类型
+     * 
+     * @return string
      */
     public function getCommandType();
 
     /**
-     * 获取命令对应的 URL
-     *
-     * @param string $type       命令的类型
-     * @param string $baseUri    基础网址，一般是域名加上 API 的主路径
-     * @param array  $parameters 命令路径中所需要的参数，例如 /Orders/{id}，需要传入 id 的值
-     *
+     * 获取执行的 http 方法
+     * 
      * @return string
      */
-    public function getUrl($type, $baseUri, array $parameters = []);
+    public function getMethod();
+
+    /**
+     * @return Route
+     */
+    public function getRoute();
+
+    /**
+     * @return CommandInterface
+     */
+    public function getBody();
 }

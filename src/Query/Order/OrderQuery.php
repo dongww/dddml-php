@@ -8,13 +8,13 @@ namespace Query\Order;
 
 use Dddml\Query\QueryInterface;
 use Dddml\Query\QueryTrait;
-use Dddml\Query\RoutesTrait;
+use Dddml\Query\RouteTrait;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 class OrderQuery implements QueryInterface
 {
-    use QueryTrait, RoutesTrait, FilteringFieldsTrait;
+    use QueryTrait, RouteTrait, FilteringFieldsTrait;
 
     protected function getRoutes()
     {
