@@ -1,14 +1,8 @@
 <?php
-use Command\Order\OrderCommand;
 use Command\Order\OrderCreateCommand;
-use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommand;
-use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommandBody;
 use Command\Order\OrderLine\OrderAttachement\OrderAttachementCreateCommand;
-use Command\Order\OrderLine\OrderLineCommand;
-use Command\Order\OrderLine\OrderLineCommandBody;
 use Command\Order\OrderLine\OrderLineCreateCommand;
 use Dddml\Command\CommandExecutor;
-use Dddml\Command\CommandInterface;
 
 require_once __DIR__ . '/bootstrap.php';
 
@@ -17,8 +11,7 @@ $orderLineId         = 'orderLineId001';
 $orderAttachementsId = 'orderAttachementsId001';
 $attachementTypeId   = 123;
 
-$oa = new OrderAttachementCommandBody();
-$oa->setCommandType(CommandInterface::COMMAND_CREATE);
+$oa = (new OrderAttachementCreateCommand())->getBody();
 $oa->setCommandId('commandId001');
 $oa->setRequesterId('requesterId001');
 $oa->setOrderId($orderId);
@@ -29,8 +22,7 @@ $oa->setAttachementTypeId($attachementTypeId);
 $oa->setAttachementTypeName('attachementTypeName001');
 $oa->setAttachementUrl('http://attachement.url');
 
-$ol = new OrderLineCommandBody();
-$ol->setCommandType(CommandInterface::COMMAND_CREATE);
+$ol = (new OrderLineCreateCommand())->getBody();
 $ol->setCommandId('commandId001');
 $ol->setRequesterId('requesterId001');
 $ol->setId($orderLineId);

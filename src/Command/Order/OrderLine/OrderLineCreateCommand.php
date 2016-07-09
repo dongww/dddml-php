@@ -6,6 +6,7 @@
  */
 namespace Command\Order\OrderLine;
 
+use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandInterface;
 use Dddml\Routing\RouteTrait;
 
@@ -18,9 +19,15 @@ class OrderLineCreateCommand implements CommandInterface
      */
     private $body;
 
+    public function __construct()
+    {
+        $body = $this->getBody();
+        $body->setCommandType(static::COMMAND_CREATE);
+    }
+
     public function getMethod()
     {
-        return '';
+        return CommandExecutor::METHOD_PUT;
     }
 
     /**
