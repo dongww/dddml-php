@@ -6,10 +6,9 @@
  */
 namespace Entity\Order;
 
-use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
 
 class Order
 {
-    use StateTrait, OrderFieldsTrait, OrderEmbeddedTrait;
+    use OrderFieldsTrait, OrderEmbeddedTrait;
 }
