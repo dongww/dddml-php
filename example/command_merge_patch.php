@@ -1,10 +1,10 @@
 <?php
-use Command\Order\OrderCommand;
-use Command\Order\OrderLine\OrderAttachement\OrderAttachementCommand;
-use Command\Order\OrderLine\OrderLineCommand;
+use Command\Order\OrderLine\OrderAttachement\OrderAttachementMergePatchCommand;
+use Command\Order\OrderLine\OrderLineCommandBody;
+use Command\Order\OrderLine\OrderLineCreateCommand;
+use Command\Order\OrderLine\OrderLineMergePatchCommand;
+use Command\Order\OrderMergePatchCommand;
 use Dddml\Command\CommandExecutor;
-use Dddml\Command\CommandInterface;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 
 require_once __DIR__ . '/bootstrap.php';
 
@@ -13,7 +13,7 @@ $orderLineId         = 'orderLineId001';
 $orderAttachementsId = 'orderAttachementsId001';
 $attachementTypeId   = 123;
 
-$oa = new OrderAttachementCommand(CommandInterface::COMMAND_MERGE_PATCH);
+$oa = (new OrderAttachementMergePatchCommand())->getBody();
 
 $oa->setCommandId('commandId001');
 $oa->setRequesterId('requesterId001');
@@ -24,9 +24,9 @@ $oa->setActive(true);
 $oa->setAttachementTypeId($attachementTypeId);
 $oa->setAttachementTypeName('attachementTypeName001');
 $oa->setAttachementUrl('http://g.cn');
-$oa->setVersion(5);
+$oa->setVersion(6);
 
-$ol = new OrderLineCommand(CommandInterface::COMMAND_MERGE_PATCH);
+$ol = (new OrderLineMergePatchCommand())->getBody();//var_dump($ol);
 $ol->setCommandId('commandId001');
 $ol->setRequesterId('requesterId001');
 $ol->setId($orderLineId);
@@ -47,26 +47,28 @@ $ol->setOrganizationId('organizationId001');
 $ol->setOrganizationName('organizationName001');
 $ol->setLogisticalNo('logisticalNo001');
 $ol->setStatus('status001');
-$ol->setVersion(5);
+$ol->setVersion(6);
 
 $ol->setOrderAttachements([$oa]);
 
-$order = new OrderCommand(CommandInterface::COMMAND_MERGE_PATCH);
+$orderCommand = new OrderMergePatchCommand();
+$order = $orderCommand->getBody();
+
 $order->setCommandId('commandId001');
 $order->setRequesterId('requesterId001');
 $order->setId($orderId);
 $order->setActive(true);
 $order->setOrderNo('orderNo001');
 $order->setStatus(2);
-$order->setDescription('description005');
+$order->setDescription('description006');
 $order->setIsPropertyActiveRemoved(true);
-$order->setVersion(5);
+$order->setVersion(6);
 
 $order->addOrderLine($ol);
 
 $executor = new CommandExecutor($baseUri);
 
-$response = $executor->execute($order, [
+$response = $executor->execute($orderCommand, [
     'parameters' => [
         'id' => $orderId,
     ],
