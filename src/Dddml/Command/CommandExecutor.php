@@ -18,15 +18,6 @@ use Symfony\Component\Routing\RequestContext;
 class CommandExecutor extends AbstractExecutor
 {
     /**
-     * @var array 命令类型和 HTTP 方法的映射表
-     */
-    public static $commandMethodMap = [
-        CommandInterface::COMMAND_CREATE      => self::METHOD_PUT,
-        CommandInterface::COMMAND_MERGE_PATCH => self::METHOD_PATCH,
-        CommandInterface::COMMAND_DELETE      => self::METHOD_DELETE,
-    ];
-
-    /**
      * 执行命令
      *
      * @param CommandInterface $command 命令对象
