@@ -3,7 +3,7 @@ use Command\Role\RoleCreateCommand;
 use Dddml\Command\CommandExecutor;
 
 /** @var CommandExecutor $executor */
-$executor = require_once __DIR__ . '/wms_bootstrap.php';
+$executor = require_once __DIR__ . '/wms_command_bootstrap.php';
 
 $roleId = 'testManager1';
 
