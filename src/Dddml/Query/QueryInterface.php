@@ -6,6 +6,8 @@
  */
 namespace Dddml\Query;
 
+use Symfony\Component\Routing\Route;
+
 /**
  * 查讯类需要遵循的接口
  *
@@ -18,22 +20,16 @@ interface QueryInterface
     const QUERY_SINGLE           = 'Single';
 
     /**
-     * 获取查询类型
-     * 
+     * 获取执行的 http 方法
+     *
      * @return string
      */
-    public function getQueryType();
+    public function getMethod();
 
     /**
-     * 获取命令对应的 URL
-     *
-     * @param string $type 执行的类型
-     * @param        $baseUri
-     * @param array  $parameters
-     *
-     * @return string
+     * @return Route
      */
-    public function getUrl($type, $baseUri, array $parameters = []);
+    public function getRoute();
 
     /**
      * 获取可以用来筛选的字段数组

@@ -7,6 +7,8 @@
 namespace Dddml\Query;
 
 use Dddml\AbstractExecutor;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Routing\RequestContext;
 
 /**
  * 查询执行类，所有的查询都经由此类来执行
@@ -24,14 +26,18 @@ class QueryExecutor extends AbstractExecutor
      */
     public function execute(QueryInterface $query, array $option = [])
     {
-        $url = $query->getUrl(
-            $query->getQueryType(),
-            $this->baseUri,
-            $option['parameters'] ?: []
+        $routes = $this->getRoutes();
+        $routes->add('route', $query->getRoute());
+
+        $generator = new UrlGenerator(
+            $routes,
+            new RequestContext($this->baseUri)
         );
 
+        $url = $generator->generate('route', $option['parameters'] ?: []);
+
         $response = $this->client->request(
-            self::METHOD_GET,
+            $query->getMethod(),
             $url,
             $this->getClientOption($option)
         );
