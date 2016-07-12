@@ -14,7 +14,7 @@ class SingleRoleQuery extends AbstractQuery
 
     protected $routePath = 'Roles/{id}';
 
-    public function getSerializerType()
+    public function getReturnType()
     {
         return 'Entity\Role\Role';
     }
