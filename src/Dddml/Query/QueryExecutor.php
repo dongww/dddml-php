@@ -44,7 +44,7 @@ class QueryExecutor extends AbstractExecutor
 
         $data = $this->serializer->deserialize(
             $response->getBody()->getContents(),
-            $query->getSerializerType(),
+            $query->getReturnType(),
             'json'
         );
 

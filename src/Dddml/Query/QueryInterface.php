@@ -32,5 +32,5 @@ interface QueryInterface
      * 
      * @return string
      */
-    public function getSerializerType();
+    public function getReturnType();
 }
