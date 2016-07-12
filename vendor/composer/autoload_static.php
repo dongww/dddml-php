@@ -103,10 +103,6 @@ class ComposerStaticInit62b2d58e269b3d5b5b6c109e68501eed
     public static $prefixesPsr0 = array (
         'P' => 
         array (
-            'Purl' => 
-            array (
-                0 => __DIR__ . '/..' . '/jwage/purl/src',
-            ),
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
@@ -118,10 +114,6 @@ class ComposerStaticInit62b2d58e269b3d5b5b6c109e68501eed
             'PhpCollection' => 
             array (
                 0 => __DIR__ . '/..' . '/phpcollection/phpcollection/src',
-            ),
-            'Pdp\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/jeremykendall/php-domain-parser/library',
             ),
         ),
         'M' => 

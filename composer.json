@@ -1,6 +1,5 @@
 {
   "require": {
-    "jwage/purl": "*",
     "jms/serializer": "^1.1",
     "guzzlehttp/guzzle": "^6.2",
     "symfony/routing": "^3.0"
