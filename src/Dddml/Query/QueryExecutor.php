@@ -22,7 +22,7 @@ class QueryExecutor extends AbstractExecutor
      * @param QueryInterface $query  查询对象
      * @param array          $option 相关选项
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return mixed
      */
     public function execute(QueryInterface $query, array $option = [])
     {
@@ -42,7 +42,13 @@ class QueryExecutor extends AbstractExecutor
             $this->getClientOption($option)
         );
 
-        return $response;
+        $data = $this->serializer->deserialize(
+            $response->getBody()->getContents(),
+            $query->getSerializerType(),
+            'json'
+        );
+
+        return $data;
     }
 
     /**

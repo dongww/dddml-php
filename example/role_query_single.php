@@ -13,4 +13,4 @@ $response = $executor->execute($singleQuery, [
     ],
 ]);
 
-echo($response->getBody()->getContents());
+var_dump($response);

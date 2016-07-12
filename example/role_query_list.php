@@ -7,10 +7,10 @@ $executor = require_once __DIR__ . '/wms_query_bootstrap.php';
 
 $singleQuery = new RolesQuery();
 
-$response = $executor->execute($singleQuery, [
+$data = $executor->execute($singleQuery, [
     'query' => [
         'sort' => '-RoleId',
     ],
 ]);
 
-echo($response->getBody()->getContents());
+var_dump($data);

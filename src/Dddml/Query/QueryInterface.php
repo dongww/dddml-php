@@ -26,4 +26,11 @@ interface QueryInterface
      * @return array
      */
     public function getFilteringFields();
+
+    /**
+     * 获取序列化的类型
+     * 
+     * @return string
+     */
+    public function getSerializerType();
 }
