@@ -8,8 +8,12 @@ namespace Query\Role;
 
 trait RoleFilteringFieldsTrait
 {
+    /** TODO 改为真实的数据 */
     public function getFilteringFields()
     {
-        return [];
+        return [
+            'a' => 'string',
+            'b' => 'integer',
+        ];
     }
 }
