@@ -37,7 +37,7 @@ class QueryExecutor extends AbstractExecutor
         $url = $generator->generate('route', $option['parameters'] ?: []);
 
         $response = $this->client->request(
-            $query->getMethod(),
+            self::METHOD_GET,
             $url,
             $this->getClientOption($option)
         );

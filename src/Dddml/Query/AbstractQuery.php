@@ -6,7 +6,6 @@
  */
 namespace Dddml\Query;
 
-use Dddml\Command\CommandExecutor;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
@@ -23,15 +22,5 @@ abstract class AbstractQuery implements QueryInterface
         }
 
         $this->route = new Route($this->routePath);
-    }
-
-    /**
-     * 获取执行的 http 方法
-     *
-     * @return string
-     */
-    public function getMethod()
-    {
-        return CommandExecutor::METHOD_GET;
     }
 }

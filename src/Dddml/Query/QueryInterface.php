@@ -15,17 +15,6 @@ use Symfony\Component\Routing\Route;
  */
 interface QueryInterface
 {
-    const QUERY_FILTERING_FIELDS = 'FilteringFields';
-    const QUERY_LIST             = 'List';
-    const QUERY_SINGLE           = 'Single';
-
-    /**
-     * 获取执行的 http 方法
-     *
-     * @return string
-     */
-    public function getMethod();
-
     /**
      * @return Route
      */
