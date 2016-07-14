@@ -4,9 +4,10 @@
  * Date: 2016/6/13
  * Time: 19:29
  */
-namespace Dddml\Command;
+namespace Dddml\Executor\Http\Executor;
 
-use Dddml\AbstractExecutor;
+use Dddml\Executor\Http\AbstractExecutor;
+use Dddml\Executor\Http\CommandRequestInterface;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 
@@ -20,15 +21,15 @@ class CommandExecutor extends AbstractExecutor
     /**
      * 执行命令
      *
-     * @param CommandInterface $command 命令对象
-     * @param array            $option  相关选项
+     * @param CommandRequestInterface $request 命令对象
+     * @param array                   $option  相关选项
      *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    public function execute(CommandInterface $command, array $option = [])
+    public function execute(CommandRequestInterface $request, array $option = [])
     {
         $routes = $this->getRoutes();
-        $routes->add('route', $command->getRoute());
+        $routes->add('route', $request->getRoute());
 
         $generator = new UrlGenerator(
             $routes,
@@ -38,9 +39,9 @@ class CommandExecutor extends AbstractExecutor
         $url = $generator->generate('route', $option['parameters'] ?: []);
 
         $response = $this->client->request(
-            $command->getMethod(),
+            $request->getMethod(),
             $url,
-            $this->getClientOption($command, $option)
+            $this->getClientOption($request, $option)
         );
 
         return $response;
@@ -49,19 +50,19 @@ class CommandExecutor extends AbstractExecutor
     /**
      * 将命令和 execute 中的参数转换成 HttpClient 所需的参数，并返回
      *
-     * @param CommandInterface $command   命令对象
-     * @param array            $extOption 附加的选项
+     * @param CommandRequestInterface $request   命令对象
+     * @param array                   $extOption 附加的选项
      *
      * @return array
      */
     protected function getClientOption(
-        CommandInterface $command,
+        CommandRequestInterface $request,
         array $extOption = []
     ) {
         $clientOption = parent::__getClientOption($extOption);
 
-        if ($body = $command->getBody()) {
-            $clientOption['body'] = $this->serializer->serialize($body, 'json');
+        if ($command = $request->getCommand()) {
+            $clientOption['body'] = $this->serializer->serialize($command, 'json');
         }
 
         return $clientOption;

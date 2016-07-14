@@ -4,12 +4,12 @@
  * Date: 2016/7/12
  * Time: 17:23
  */
-namespace Dddml\Query;
+namespace Dddml\Executor\Http;
 
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
-abstract class AbstractQuery implements QueryInterface
+abstract class AbstractQuery implements QueryRequestInterface
 {
     use RouteTrait;
 

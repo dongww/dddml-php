@@ -4,7 +4,7 @@
  * Date: 2016/6/27
  * Time: 20:37
  */
-namespace Dddml\Query;
+namespace Dddml\Executor\Http;
 
 use Symfony\Component\Routing\Route;
 
@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Route;
  *
  * @package Dddml\Query
  */
-interface QueryInterface
+interface QueryRequestInterface
 {
     /**
      * @return Route

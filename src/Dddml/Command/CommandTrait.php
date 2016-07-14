@@ -81,7 +81,7 @@ trait CommandTrait
     }
 
     /**
-     * @return CommandInterface
+     * @return CommandRequestInterface
      */
     public function getBody()
     {

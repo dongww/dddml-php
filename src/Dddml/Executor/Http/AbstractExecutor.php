@@ -4,8 +4,9 @@
  * Date: 2016/6/27
  * Time: 19:50
  */
-namespace Dddml;
+namespace Dddml\Executor\Http;
 
+use Dddml\Auth;
 use Dddml\Serializer\Naming\DddmlStrategy;
 use GuzzleHttp\Client;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;

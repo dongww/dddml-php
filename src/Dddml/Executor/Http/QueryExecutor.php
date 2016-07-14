@@ -4,9 +4,8 @@
  * Date: 2016/6/27
  * Time: 19:48
  */
-namespace Dddml\Query;
+namespace Dddml\Executor\Http;
 
-use Dddml\AbstractExecutor;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 
@@ -19,15 +18,15 @@ class QueryExecutor extends AbstractExecutor
     /**
      * 执行查询
      *
-     * @param QueryInterface $query  查询对象
-     * @param array          $option 相关选项
+     * @param QueryRequestInterface $request 查询对象
+     * @param array                 $option  相关选项
      *
      * @return mixed
      */
-    public function execute(QueryInterface $query, array $option = [])
+    public function execute(QueryRequestInterface $request, array $option = [])
     {
         $routes = $this->getRoutes();
-        $routes->add('route', $query->getRoute());
+        $routes->add('route', $request->getRoute());
 
         $generator = new UrlGenerator(
             $routes,
@@ -44,7 +43,7 @@ class QueryExecutor extends AbstractExecutor
 
         $data = $this->serializer->deserialize(
             $response->getBody()->getContents(),
-            $query->getReturnType(),
+            $request->getReturnType(),
             'json'
         );
 
