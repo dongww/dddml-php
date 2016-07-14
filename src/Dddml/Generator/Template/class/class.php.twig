@@ -1,0 +1,14 @@
+{% import "class/body_macro.twig" as body %}
+<?php
+namespace {{ class_namespace }};
+
+{% for used_namespace in used_namespaces %}
+use {{ used_namespace }};
+{% endfor %}
+
+class {{ class_name }}
+{
+{{ body.used_traits(traits) }}
+{{ body.properties(properties) }}
+{{ body.functions(functions) }}
+}

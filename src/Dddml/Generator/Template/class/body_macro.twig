@@ -1,0 +1,48 @@
+{% macro used_traits(traits) %}
+    {% for trait_name in traits %}
+        use {{ trait_name }};
+    {% endfor %}
+{% endmacro %}
+
+{% macro property(serializer_type, php_type, name) %}
+    /**
+    * @Type("{{ serializer_type }}")
+    *
+    * @var {{ php_type }}
+    */
+    private ${{ name }};
+{% endmacro %}
+
+{% macro properties(properties) %}
+    {% import _self as body %}
+
+    {% for property in properties %}
+        {{ body.property(property.serializer_type, property.php_type, property.name) }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro get_and_set_func(type, property, param_type) %}
+    /**
+    * @return {{ type }}
+    */
+    public function get{{ property|capitalize }}()
+    {
+    return $this->{{ property }};
+    }
+
+    /**
+    * @param {{ type }} ${{ property }}
+    */
+    public function set{{ property|capitalize }}({% if param_type %}{{ param_type }} {% endif %}${{ property }})
+    {
+    $this->{{ property }} = ${{ property }};
+    }
+{% endmacro %}
+
+{% macro functions(functions) %}
+    {% import _self as body %}
+
+    {% for func in functions %}
+        {{ body.get_and_set_func(func.type, func.property, func.param_type) }}
+    {% endfor %}
+{% endmacro %}
