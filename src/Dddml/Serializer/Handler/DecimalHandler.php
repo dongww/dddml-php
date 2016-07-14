@@ -4,8 +4,9 @@
  * Date: 2016/7/13
  * Time: 14:51
  */
-namespace Dddml\Serializer\Handle;
+namespace Dddml\Serializer\Handler;
 
+use Dddml\Serializer\Type\Decimal;
 use Dddml\Serializer\Type\Long;
 use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigator;
@@ -13,7 +14,7 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\JsonSerializationVisitor;
 
-class LongHandle implements SubscribingHandlerInterface
+class DecimalHandler implements SubscribingHandlerInterface
 {
     public static function getSubscribingMethods()
     {
@@ -22,27 +23,27 @@ class LongHandle implements SubscribingHandlerInterface
                 'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
                 'format'    => 'json',
                 'type'      => 'Dddml\Serializer\Type\Long',
-                'method'    => 'serializeLongToJson',
+                'method'    => 'serializeDecimalToJson',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format'    => 'json',
                 'type'      => 'Dddml\Serializer\Type\Long',
-                'method'    => 'deserializeLongToJson',
+                'method'    => 'deserializeDecimalToJson',
             ],
         ];
     }
 
-    public function serializeLongToJson(JsonSerializationVisitor $visitor, Long $long, array $type, Context $context)
+    public function serializeDecimalToJson(JsonSerializationVisitor $visitor, Long $decimal, array $type, Context $context)
     {
-        return $long->getValue();
+        return $decimal->getValue();
     }
 
-    public function deserializeLongToJson(JsonDeserializationVisitor $visitor, $data, array $type)
+    public function deserializeDecimalToJson(JsonDeserializationVisitor $visitor, $data, array $type)
     {
-        $long = new Long();
-        $long->setValue($data);
+        $decimal = new Decimal();
+        $decimal->setValue($data);
 
-        return $long;
+        return $decimal;
     }
 }
