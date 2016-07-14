@@ -4,10 +4,8 @@
  * Date: 2016/6/13
  * Time: 19:29
  */
-namespace Dddml\Executor\Http\Executor;
+namespace Dddml\Executor\Http;
 
-use Dddml\Executor\Http\AbstractExecutor;
-use Dddml\Executor\Http\CommandRequestInterface;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 
