@@ -6,8 +6,8 @@
  */
 namespace Command\Role;
 
-use Dddml\Http\CommandRequestInterface;
-use Dddml\Http\Executor\CommandExecutor;
+use Dddml\Executor\Http\CommandExecutor;
+use Dddml\Executor\Http\CommandRequestInterface;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 

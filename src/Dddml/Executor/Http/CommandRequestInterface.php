@@ -6,13 +6,13 @@
  */
 namespace Dddml\Executor\Http;
 
-use Dddml\Command\CommandInterface;
+use Dddml\Command\CommandRequestInterface as BaseInterface;
 use Symfony\Component\Routing\Route;
 
 /**
  * 命令类需要遵循的接口
  */
-interface CommandRequestInterface extends CommandInterface
+interface CommandRequestInterface extends BaseInterface
 {
     /**
      * 获取执行的 http 方法

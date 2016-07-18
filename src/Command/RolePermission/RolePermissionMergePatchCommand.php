@@ -6,8 +6,8 @@
  */
 namespace Command\RolePermission;
 
-use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandRequestInterface;
+use Dddml\Executor\Http\CommandExecutor;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
@@ -18,11 +18,11 @@ class RolePermissionMergePatchCommandRequest implements CommandRequestInterface
     /**
      * @var RolePermissionCommand
      */
-    private $body;
+    private $command;
 
     public function __construct()
     {
-        $body = $this->getBody();
+        $body = $this->getCommand();
         $body->setCommandType(static::COMMAND_MERGE_PATCH);
 
         $this->route = new Route('RolePermissions/{id}');
@@ -36,12 +36,12 @@ class RolePermissionMergePatchCommandRequest implements CommandRequestInterface
     /**
      * @return RolePermissionCommand
      */
-    public function getBody()
+    public function getCommand()
     {
-        if (!$this->body) {
-            $this->body = new RolePermissionCommand();
+        if (!$this->command) {
+            $this->command = new RolePermissionCommand();
         }
 
-        return $this->body;
+        return $this->command;
     }
 }

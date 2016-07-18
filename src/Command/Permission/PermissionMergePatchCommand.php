@@ -6,8 +6,8 @@
  */
 namespace Command\Permission;
 
-use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandRequestInterface;
+use Dddml\Executor\Http\CommandExecutor;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
@@ -18,11 +18,11 @@ class PermissionMergePatchCommandRequest implements CommandRequestInterface
     /**
      * @var PermissionCommand
      */
-    private $body;
+    private $command;
 
     public function __construct()
     {
-        $body = $this->getBody();
+        $body = $this->getCommand();
         $body->setCommandType(static::COMMAND_MERGE_PATCH);
 
         $this->route = new Route('Permissions/{id}');
@@ -36,12 +36,12 @@ class PermissionMergePatchCommandRequest implements CommandRequestInterface
     /**
      * @return PermissionCommand
      */
-    public function getBody()
+    public function getCommand()
     {
-        if (!$this->body) {
-            $this->body = new PermissionCommand();
+        if (!$this->command) {
+            $this->command = new PermissionCommand();
         }
 
-        return $this->body;
+        return $this->command;
     }
 }
