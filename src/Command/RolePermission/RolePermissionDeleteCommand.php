@@ -6,14 +6,19 @@
  */
 namespace Command\RolePermission;
 
-use Dddml\Command\CommandExecutor;
 use Dddml\Command\CommandRequestInterface;
+use Dddml\Executor\Http\CommandExecutor;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
 class RolePermissionDeleteCommandRequest implements CommandRequestInterface
 {
     use RouteTrait;
+
+    /**
+     * @var RolePermissionCommand
+     */
+    private $command;
 
     public function __construct()
     {
@@ -26,10 +31,14 @@ class RolePermissionDeleteCommandRequest implements CommandRequestInterface
     }
 
     /**
-     * @return null
+     * @return RolePermissionCommand
      */
-    public function getBody()
+    public function getCommand()
     {
-        return null;
+        if (!$this->command) {
+            $this->command = new RolePermissionCommand();
+        }
+
+        return $this->command;
     }
 }
