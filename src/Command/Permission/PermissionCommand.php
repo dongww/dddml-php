@@ -6,11 +6,11 @@
  */
 namespace Command\Permission;
 
-use Dddml\Command\CommandBodyInterface;
+use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
-use Entity\Permissions\PermissionFieldsTrait;
+use Entity\Permission\PermissionFieldsTrait;
 
-class PermissionCommandBody implements CommandBodyInterface
+class PermissionCommand implements CommandInterface
 {
     use PermissionFieldsTrait, CommandTrait, IsPropertyRemovedTrait;
 }

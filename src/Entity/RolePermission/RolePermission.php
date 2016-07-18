@@ -6,9 +6,7 @@
  */
 namespace Entity\RolePermission;
 
-use Entity\Role\RoleFieldsTrait;
-
 class RolePermission
 {
-    use RoleFieldsTrait;
+    use RolePermissionFieldsTrait;
 }

@@ -7,16 +7,16 @@
 namespace Command\RolePermission;
 
 use Dddml\Command\CommandExecutor;
-use Dddml\Command\CommandInterface;
+use Dddml\Command\CommandRequestInterface;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
-class RolePermissionMergePatchCommand implements CommandInterface
+class RolePermissionMergePatchCommandRequest implements CommandRequestInterface
 {
     use RouteTrait;
 
     /**
-     * @var RolePermissionCommandBody
+     * @var RolePermissionCommand
      */
     private $body;
 
@@ -34,12 +34,12 @@ class RolePermissionMergePatchCommand implements CommandInterface
     }
 
     /**
-     * @return RolePermissionCommandBody
+     * @return RolePermissionCommand
      */
     public function getBody()
     {
         if (!$this->body) {
-            $this->body = new RolePermissionCommandBody();
+            $this->body = new RolePermissionCommand();
         }
 
         return $this->body;

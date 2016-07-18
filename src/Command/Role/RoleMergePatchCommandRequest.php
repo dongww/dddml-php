@@ -6,23 +6,23 @@
  */
 namespace Command\Role;
 
-use Dddml\Command\CommandExecutor;
-use Dddml\Command\CommandInterface;
+use Dddml\Http\CommandRequestInterface;
+use Dddml\Http\Executor\CommandExecutor;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
-class RoleMergePatchCommand implements CommandInterface
+class RoleMergePatchCommandRequest implements CommandRequestInterface
 {
     use RouteTrait;
 
     /**
-     * @var RoleCommandBody
+     * @var RoleCommand
      */
-    private $body;
+    private $command;
 
     public function __construct()
     {
-        $body = $this->getBody();
+        $body = $this->getCommand();
         $body->setCommandType(static::COMMAND_MERGE_PATCH);
 
         $this->route = new Route('Roles/{id}');
@@ -34,14 +34,14 @@ class RoleMergePatchCommand implements CommandInterface
     }
 
     /**
-     * @return RoleCommandBody
+     * @return RoleCommand
      */
-    public function getBody()
+    public function getCommand()
     {
-        if (!$this->body) {
-            $this->body = new RoleCommandBody();
+        if (!$this->command) {
+            $this->command = new RoleCommand();
         }
 
-        return $this->body;
+        return $this->command;
     }
 }

@@ -6,7 +6,6 @@
  */
 namespace Entity\Role;
 
-use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
 
 class Role

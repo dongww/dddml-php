@@ -6,7 +6,7 @@
  */
 namespace Query\Role;
 
-use Dddml\Query\AbstractQuery;
+use Dddml\Executor\Http\AbstractQuery;
 
 class RolesQuery extends AbstractQuery
 {

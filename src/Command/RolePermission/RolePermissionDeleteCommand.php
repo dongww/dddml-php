@@ -7,11 +7,11 @@
 namespace Command\RolePermission;
 
 use Dddml\Command\CommandExecutor;
-use Dddml\Command\CommandInterface;
+use Dddml\Command\CommandRequestInterface;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
-class RolePermissionDeleteCommand implements CommandInterface
+class RolePermissionDeleteCommandRequest implements CommandRequestInterface
 {
     use RouteTrait;
 

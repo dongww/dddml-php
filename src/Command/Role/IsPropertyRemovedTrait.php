@@ -13,21 +13,21 @@ trait IsPropertyRemovedTrait
     /**
      * @Type("boolean")
      *
-     * @var bool
+     * @var boolean
      */
     private $isPropertyNameRemoved;
 
     /**
      * @Type("boolean")
      *
-     * @var bool
+     * @var boolean
      */
     private $isPropertyDescriptionRemoved;
 
     /**
      * @Type("boolean")
      *
-     * @var bool
+     * @var boolean
      */
     private $isPropertyActiveRemoved;
 

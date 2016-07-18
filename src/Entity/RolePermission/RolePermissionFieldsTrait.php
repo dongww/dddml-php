@@ -32,7 +32,7 @@ trait RolePermissionFieldsTrait
     /**
      * @param Id $id
      */
-    public function setId($id)
+    public function setId(Id $id)
     {
         $this->id = $id;
     }

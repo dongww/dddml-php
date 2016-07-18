@@ -6,11 +6,11 @@
  */
 namespace Command\Role;
 
-use Dddml\Command\CommandBodyInterface;
+use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
 use Entity\Role\RoleFieldsTrait;
 
-class RoleCommandBody implements CommandBodyInterface
+class RoleCommand implements CommandInterface
 {
     use RoleFieldsTrait, CommandTrait, IsPropertyRemovedTrait;
 }

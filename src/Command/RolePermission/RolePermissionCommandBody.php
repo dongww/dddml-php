@@ -6,11 +6,11 @@
  */
 namespace Command\RolePermission;
 
-use Dddml\Command\CommandBodyInterface;
+use Dddml\Command\CommandInterface;
 use Dddml\Command\CommandTrait;
 use Entity\RolePermission\RolePermissionFieldsTrait;
 
-class RolePermissionCommandBody implements CommandBodyInterface
+class RolePermissionCommand implements CommandInterface
 {
     use RolePermissionFieldsTrait, CommandTrait, IsPropertyRemovedTrait;
 }
