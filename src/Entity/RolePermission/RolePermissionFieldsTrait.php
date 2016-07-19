@@ -8,7 +8,7 @@ namespace Entity\RolePermission;
 
 use Dddml\StateTrait;
 use JMS\Serializer\Annotation\Type;
-use ValueObject\Permission\Id;
+use ValueObject\RolePermission\Id;
 
 trait RolePermissionFieldsTrait
 {

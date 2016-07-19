@@ -4,7 +4,7 @@
  * Date: 2016/7/9
  * Time: 15:27
  */
-namespace ValueObject\Permission;
+namespace ValueObject\RolePermission;
 
 use JMS\Serializer\Annotation\Type;
 
