@@ -13,6 +13,11 @@ use ValueObject\InOut\InOutLine\SkuId;
 class InOutLineId implements IdFlattenEnable
 {
     /**
+     * @var InOutLineIdFlattenHelper
+     */
+    private $idFlattenedHelper;
+
+    /**
      * @Type("string")
      *
      * @var string
@@ -46,6 +51,10 @@ class InOutLineId implements IdFlattenEnable
      */
     public function getSkuId()
     {
+        if (!$this->skuId) {
+            $this->skuId = new SkuId();
+        }
+
         return $this->skuId;
     }
 
@@ -62,13 +71,11 @@ class InOutLineId implements IdFlattenEnable
      */
     public function toString()
     {
-        $values = [
-            $this->getInOutDocumentNumber(),
-            $this->getSkuId()->getProductId(),
-            $this->getSkuId()->getAttributeSetInstanceId(),
-        ];
+        if (!$this->idFlattenedHelper) {
+            $this->idFlattenedHelper = new InOutLineIdFlattenHelper($this);
+        }
 
-        return implode(',', $values);
+        return $this->idFlattenedHelper->toString();
     }
 
     /**
@@ -78,16 +85,7 @@ class InOutLineId implements IdFlattenEnable
      */
     public static function createFromString($idStr)
     {
-        $values = explode(',', $idStr);
-
-        $inOutLineId = new static();
-        $inOutLineId->setInOutDocumentNumber($values[0]);
-
-        $skuId = new SkuId();
-        $skuId->setProductId($values[1]);
-        $skuId->setAttributeSetInstanceId($values[2]);
-        $inOutLineId->setSkuId($skuId);
-
-        return $inOutLineId;
+        return (new InOutLineIdFlattenHelper())
+            ->stringToInOutLineId($idStr);
     }
 }
