@@ -38,7 +38,7 @@ abstract class AbstractIdFlattenHelper
      *
      * @return InOutLineId
      */
-    public function stringToInOutLineId($idStr)
+    public function stringToId($idStr)
     {
         $values = explode(',', $idStr);
 
