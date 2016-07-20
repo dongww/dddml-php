@@ -8,7 +8,7 @@ namespace Dddml;
 
 use Entity\InOut\InOutLine\InOutLineId;
 
-class AbstractIdFlattenHelper
+abstract class AbstractIdFlattenHelper
 {
     protected static $setFunctions = null;
 
