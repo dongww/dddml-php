@@ -6,11 +6,11 @@
  */
 namespace Entity\InOut\InOutLine;
 
-use Dddml\IdFlattenedEnable;
+use Dddml\IdFlattenEnable;
 use JMS\Serializer\Annotation\Type;
 use ValueObject\InOut\InOutLine\SkuId;
 
-class InOutLineId implements IdFlattenedEnable
+class InOutLineId implements IdFlattenEnable
 {
     /**
      * @Type("string")
@@ -57,13 +57,37 @@ class InOutLineId implements IdFlattenedEnable
         $this->skuId = $skuId;
     }
 
-    public function serialize()
+    /**
+     * @return string
+     */
+    public function toString()
     {
-        // TODO: Implement serialize() method.
+        $values = [
+            $this->getInOutDocumentNumber(),
+            $this->getSkuId()->getProductId(),
+            $this->getSkuId()->getAttributeSetInstanceId(),
+        ];
+
+        return implode(',', $values);
     }
 
-    public function unserialize($serialized)
+    /**
+     * @param string $idStr
+     *
+     * @return InOutLineId
+     */
+    public static function createFromString($idStr)
     {
-        // TODO: Implement unserialize() method.
+        $values = explode(',', $idStr);
+
+        $inOutLineId = new static();
+        $inOutLineId->setInOutDocumentNumber($values[0]);
+
+        $skuId = new SkuId();
+        $skuId->setProductId($values[1]);
+        $skuId->setAttributeSetInstanceId($values[2]);
+        $inOutLineId->setSkuId($skuId);
+
+        return $inOutLineId;
     }
 }
