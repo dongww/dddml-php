@@ -13,9 +13,9 @@ use ValueObject\InOut\InOutLine\SkuId;
 class InOutLineId implements IdFlattenEnable
 {
     /**
-     * @var InOutLineIdFlattenHelper
+     * @var InOutLineIdFlattenedDto
      */
-    private $idFlattenedHelper;
+    private $idFlattenedDto;
 
     /**
      * @Type("string")
@@ -71,11 +71,11 @@ class InOutLineId implements IdFlattenEnable
      */
     public function toString()
     {
-        if (!$this->idFlattenedHelper) {
-            $this->idFlattenedHelper = new InOutLineIdFlattenHelper($this);
+        if (!$this->idFlattenedDto) {
+            $this->idFlattenedDto = new InOutLineIdFlattenedDto($this);
         }
 
-        return $this->idFlattenedHelper->toString();
+        return $this->idFlattenedDto->toString();
     }
 
     /**
@@ -85,7 +85,8 @@ class InOutLineId implements IdFlattenEnable
      */
     public static function createFromString($idStr)
     {
-        return (new InOutLineIdFlattenHelper())
-            ->stringToInOutLineId($idStr);
+        return (new InOutLineIdFlattenedDto())
+            ->fromString($idStr)
+            ->toInOutLineId();
     }
 }
