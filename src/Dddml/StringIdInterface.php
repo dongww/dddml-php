@@ -4,11 +4,9 @@
  * Date: 2016/7/19
  * Time: 19:44
  */
-
 namespace Dddml;
 
-
-interface IdFlattenEnable
+interface StringIdInterface
 {
     const GLUE = ',';
     /**
@@ -19,7 +17,7 @@ interface IdFlattenEnable
     /**
      * @param string $idStr
      *
-     * @return IdFlattenEnable
+     * @return StringIdInterface
      */
     public static function createFromString($idStr);
 }

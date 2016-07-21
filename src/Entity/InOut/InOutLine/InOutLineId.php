@@ -6,11 +6,11 @@
  */
 namespace Entity\InOut\InOutLine;
 
-use Dddml\IdFlattenEnable;
+use Dddml\StringIdInterface;
 use JMS\Serializer\Annotation\Type;
 use ValueObject\InOut\InOutLine\SkuId;
 
-class InOutLineId implements IdFlattenEnable
+class InOutLineId implements StringIdInterface
 {
     /**
      * @var InOutLineIdFlattenedDto
