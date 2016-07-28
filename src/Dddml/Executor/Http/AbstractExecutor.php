@@ -9,6 +9,7 @@ namespace Dddml\Executor\Http;
 use Dddml\Auth;
 use Dddml\Serializer\Naming\DddmlStrategy;
 use GuzzleHttp\Client;
+use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
@@ -72,6 +73,11 @@ abstract class AbstractExecutor
 
             $serializer = SerializerBuilder::create()
                 ->setPropertyNamingStrategy($snas)
+                ->configureHandlers(function (HandlerRegistry $registry) {
+                    $registry->registerSubscribingHandler(new \Dddml\Serializer\Handler\MoneyHandler());
+                    $registry->registerSubscribingHandler(new \Dddml\Serializer\Handler\DecimalHandler());
+                    $registry->registerSubscribingHandler(new \Dddml\Serializer\Handler\LongHandler());
+                })
                 ->build();
         }
 

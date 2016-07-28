@@ -25,6 +25,17 @@ class QueryExecutor extends AbstractExecutor
      */
     public function execute(QueryRequestInterface $request, array $option = [])
     {
+        $data = $this->serializer->deserialize(
+            $this->executeJson($request, $option),
+            $request->getReturnType(),
+            'json'
+        );
+
+        return $data;
+    }
+
+    public function executeJson(QueryRequestInterface $request, array $option = [])
+    {
         $routes = $this->getRoutes();
         $routes->add('route', $request->getRoute());
 
@@ -41,13 +52,7 @@ class QueryExecutor extends AbstractExecutor
             $this->getClientOption($option)
         );
 
-        $data = $this->serializer->deserialize(
-            $response->getBody()->getContents(),
-            $request->getReturnType(),
-            'json'
-        );
-
-        return $data;
+        return $response->getBody()->getContents();
     }
 
     /**

@@ -17,14 +17,14 @@ abstract class AbstractIdFlattenHelper
     protected static $idClassName =  null;
 
     /**
-     * @var InOutLineId
+     * @var StringIdInterface
      */
     protected $value;
 
     /**
-     * @param IdFlattenEnable $value
+     * @param StringIdInterface $value
      */
-    public function __construct(IdFlattenEnable $value = null)
+    public function __construct(StringIdInterface $value = null)
     {
         if ($value) {
             $this->value = $value;
@@ -36,7 +36,7 @@ abstract class AbstractIdFlattenHelper
     /**
      * @param string $idStr
      *
-     * @return InOutLineId
+     * @return StringIdInterface
      */
     public function stringToId($idStr)
     {

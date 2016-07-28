@@ -60,7 +60,8 @@ class CommandExecutor extends AbstractExecutor
         $clientOption = parent::__getClientOption($extOption);
 
         if ($command = $request->getCommand()) {
-            $clientOption['body'] = $this->serializer->serialize($command, 'json');
+            $body = $this->serializer->serialize($command, 'json');
+            $clientOption['body'] = $body;
         }
 
         return $clientOption;
