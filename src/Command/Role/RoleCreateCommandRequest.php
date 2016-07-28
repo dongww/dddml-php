@@ -6,12 +6,12 @@
  */
 namespace Command\Role;
 
+use Dddml\Executor\Http\AbstractCommandRequest;
 use Dddml\Executor\Http\CommandExecutor;
-use Dddml\Executor\Http\CommandRequestInterface;
 use Dddml\Routing\RouteTrait;
 use Symfony\Component\Routing\Route;
 
-class RoleCreateCommandRequest implements CommandRequestInterface
+class RoleCreateCommandRequest extends AbstractCommandRequest
 {
     use RouteTrait;
 
@@ -20,8 +20,12 @@ class RoleCreateCommandRequest implements CommandRequestInterface
      */
     private $command;
 
-    public function __construct()
+    public static $commandType = 'Command\Role\RoleCommand';
+
+    public function __construct(CommandExecutor $executor)
     {
+        parent::__construct($executor);
+
         $body = $this->getCommand();
         $body->setCommandType(static::COMMAND_CREATE);
 
