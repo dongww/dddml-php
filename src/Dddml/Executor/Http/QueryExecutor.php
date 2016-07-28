@@ -34,7 +34,22 @@ class QueryExecutor extends AbstractExecutor
         return $data;
     }
 
+    public function count(QueryCountRequestInterface $request, array $option = [])
+    {
+        $route = $request->getRoute();
+        $route->setPath($route->getPath() . '/_count');
+
+        return $this->executeJson($request, $option);
+    }
+
     public function executeJson(QueryRequestInterface $request, array $option = [])
+    {
+        $response = $this->executeResponse($request, $option);
+
+        return $response->getBody()->getContents();
+    }
+
+    protected function executeResponse(QueryRequestInterface $request, array $option = [])
     {
         $routes = $this->getRoutes();
         $routes->add('route', $request->getRoute());
@@ -44,7 +59,10 @@ class QueryExecutor extends AbstractExecutor
             new RequestContext($this->baseUri)
         );
 
-        $url = $generator->generate('route', $option['parameters'] ?: []);
+        $url = $generator->generate(
+            'route',
+            isset($option['parameters']) ? $option['parameters'] : []
+        );
 
         $response = $this->client->request(
             self::METHOD_GET,
@@ -52,7 +70,7 @@ class QueryExecutor extends AbstractExecutor
             $this->getClientOption($option)
         );
 
-        return $response->getBody()->getContents();
+        return $response;
     }
 
     /**

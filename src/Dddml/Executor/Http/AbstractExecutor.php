@@ -86,7 +86,7 @@ abstract class AbstractExecutor
         $this->client = new Client([
             'base_uri' => $this->baseUri,
         ]);
-        
+
         $this->routes = new RouteCollection();
 
         $this->setOption($option);
@@ -158,6 +158,11 @@ abstract class AbstractExecutor
     public function setSerializer(Serializer $serializer)
     {
         $this->serializer = $serializer;
+    }
+
+    public function getSerializer()
+    {
+        return $this->serializer;
     }
 
     /**
